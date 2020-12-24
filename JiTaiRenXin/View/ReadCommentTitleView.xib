@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="ReadCommentTitleView" id="iN0-l3-epB" customClass="ReadCommentTitleView" customModule="白医" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6Y-XA-SI4">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="8"/>
+                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="ccX-LB-fJv"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-BF-v9M">
+                    <rect key="frame" x="15" y="29" width="34" height="9"/>
+                    <color key="backgroundColor" red="0.1764705882" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.1764705882" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="34" id="Cd6-ah-82z"/>
+                        <constraint firstAttribute="height" constant="9" id="jG2-DN-xDf"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHy-mr-y5D">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="8"/>
+                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="FAN-zC-YZ9"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试数据" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSO-EO-dAb">
+                    <rect key="frame" x="15" y="15.5" width="285" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="red-88-vYd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="zHy-mr-y5D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6vs-FB-qfv"/>
+                <constraint firstItem="I6Y-XA-SI4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Cbk-L9-JxI"/>
+                <constraint firstItem="I6Y-XA-SI4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gwf-hf-q06"/>
+                <constraint firstItem="gSO-EO-dAb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="4" id="JBT-Lh-c3L"/>
+                <constraint firstAttribute="trailing" secondItem="zHy-mr-y5D" secondAttribute="trailing" id="NfY-dL-eJr"/>
+                <constraint firstAttribute="trailing" secondItem="I6Y-XA-SI4" secondAttribute="trailing" id="SyV-D0-yf7"/>
+                <constraint firstAttribute="trailing" secondItem="gSO-EO-dAb" secondAttribute="trailing" constant="20" id="dUv-Q5-q9t"/>
+                <constraint firstItem="zHy-mr-y5D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="epN-9H-eOi"/>
+                <constraint firstItem="C4s-BF-v9M" firstAttribute="top" secondItem="I6Y-XA-SI4" secondAttribute="bottom" constant="21" id="fpP-FL-a19"/>
+                <constraint firstItem="gSO-EO-dAb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="hVj-P5-Kat"/>
+                <constraint firstItem="C4s-BF-v9M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="sWI-cn-Thn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dotview" destination="C4s-BF-v9M" id="fkr-HS-8ah"/>
+                <outlet property="titleLable" destination="gSO-EO-dAb" id="5m5-HG-fE7"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="123.21428571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

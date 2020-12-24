@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="LoginPwdCell" selectionStyle="default" indentationWidth="10" rowHeight="60" id="pMy-dA-j6T" customClass="LoginPwdCell" customModule="吉泰仁心" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pMy-dA-j6T" id="of2-Zi-HkK">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59c-ho-2t2">
+                        <rect key="frame" x="0.0" y="8" width="320" height="44"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password-jihuo" translatesAutoresizingMaskIntoConstraints="NO" id="qb2-n2-kWg">
+                                <rect key="frame" x="15" y="14.5" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="MU0-Yc-Enu"/>
+                                    <constraint firstAttribute="height" constant="15" id="OZo-OX-D7H"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-ef-cDs">
+                                <rect key="frame" x="40" y="0.0" width="260" height="44"/>
+                                <color key="textColor" systemColor="viewFlipsideBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AMh-ef-cDs" firstAttribute="leading" secondItem="qb2-n2-kWg" secondAttribute="trailing" constant="10" id="8Iz-mI-9MM"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="AFB-8f-Sw3"/>
+                            <constraint firstItem="AMh-ef-cDs" firstAttribute="top" secondItem="59c-ho-2t2" secondAttribute="top" id="EoH-hn-Jdd"/>
+                            <constraint firstAttribute="bottom" secondItem="AMh-ef-cDs" secondAttribute="bottom" id="GZ8-6Y-HhS"/>
+                            <constraint firstAttribute="trailing" secondItem="AMh-ef-cDs" secondAttribute="trailing" constant="20" id="Gxa-i1-v3F"/>
+                            <constraint firstItem="qb2-n2-kWg" firstAttribute="leading" secondItem="59c-ho-2t2" secondAttribute="leading" constant="15" id="L5r-SK-r42"/>
+                            <constraint firstItem="qb2-n2-kWg" firstAttribute="centerY" secondItem="59c-ho-2t2" secondAttribute="centerY" id="nie-du-aqN"/>
+                            <constraint firstAttribute="height" constant="44" id="wst-cm-W2G"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBr-ke-33U">
+                        <rect key="frame" x="15" y="44" width="290" height="1"/>
+                        <color key="backgroundColor" red="0.1764705882" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.1764705882" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Bvq-Cx-yvm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TBr-ke-33U" firstAttribute="top" secondItem="of2-Zi-HkK" secondAttribute="top" constant="44" id="DXw-Hk-r3d"/>
+                    <constraint firstItem="TBr-ke-33U" firstAttribute="leading" secondItem="of2-Zi-HkK" secondAttribute="leading" constant="15" id="Hd9-yC-9En"/>
+                    <constraint firstAttribute="trailing" secondItem="59c-ho-2t2" secondAttribute="trailing" id="O4K-PP-8fZ"/>
+                    <constraint firstItem="59c-ho-2t2" firstAttribute="leading" secondItem="of2-Zi-HkK" secondAttribute="leading" id="Zny-Qc-AKa"/>
+                    <constraint firstAttribute="trailing" secondItem="TBr-ke-33U" secondAttribute="trailing" constant="15" id="bUw-nd-6Kx"/>
+                    <constraint firstItem="59c-ho-2t2" firstAttribute="centerY" secondItem="of2-Zi-HkK" secondAttribute="centerY" id="tGM-m0-pls"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="JTe-T7-yik"/>
+            <connections>
+                <outlet property="pwdTextField" destination="AMh-ef-cDs" id="1GE-YM-gXd"/>
+            </connections>
+            <point key="canvasLocation" x="-228.98550724637684" y="115.17857142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="password-jihuo" width="14" height="16"/>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
