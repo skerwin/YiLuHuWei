@@ -3,7 +3,10 @@ PODS:
   - Alamofire (5.2.2)
   - FLAnimatedImage (1.0.12)
   - IQKeyboardManagerSwift (6.5.5)
+  - JCore (2.1.4-noidfa)
   - JGProgressHUD (2.1)
+  - JPush (3.2.4-noidfa):
+    - JCore (< 3.0.0, >= 2.0.0)
   - Kingfisher (5.14.1):
     - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
@@ -30,7 +33,9 @@ DEPENDENCIES:
   - ActionSheetPicker-3.0
   - Alamofire (~> 5.2)
   - IQKeyboardManagerSwift
+  - JCore (= 2.1.4-noidfa)
   - JGProgressHUD
+  - JPush (= 3.2.4-noidfa)
   - Kingfisher
   - MJRefresh
   - ObjectMapper (~> 3.3)
@@ -49,7 +54,9 @@ SPEC REPOS:
     - Alamofire
     - FLAnimatedImage
     - IQKeyboardManagerSwift
+    - JCore
     - JGProgressHUD
+    - JPush
     - Kingfisher
     - MJRefresh
     - ObjectMapper
@@ -67,7 +74,9 @@ SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  JCore: 2f15311e6889ab43ed5d629802ef793cac566465
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
+  JPush: 2ff11d3013b360bc1b7da16741027e88f12fe3e6
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
@@ -80,6 +89,6 @@ SPEC CHECKSUMS:
   XHLaunchAd: 6320f9c68732667323072fc3a5f104e40fbe9cfe
   ZFPlayer: 1310252c253b9958e4fcd411e706b99c31834eaf
 
-PODFILE CHECKSUM: b68fc5b0e5948e268d4f3cc2593f32066fed5f62
+PODFILE CHECKSUM: a3b253a7ace243402243559df5575994b421d5a0
 
 COCOAPODS: 1.9.3

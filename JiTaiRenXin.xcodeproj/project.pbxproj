@@ -284,6 +284,8 @@
 		B86CB69D24ED0C5200919F4F /* ComplainTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplainTypeCell.xib; sourceTree = "<group>"; };
 		B86EF3FD24E6970D002192B0 /* reCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reCommentCell.swift; sourceTree = "<group>"; };
 		B86EF3FE24E6970D002192B0 /* reCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = reCommentCell.xib; sourceTree = "<group>"; };
+		B87167612594E24B00ECE7B4 /* 吉泰仁心Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "吉泰仁心Release.entitlements"; sourceTree = "<group>"; };
+		B871677B2594E28D00ECE7B4 /* 吉泰仁心Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "吉泰仁心Debug.entitlements"; sourceTree = "<group>"; };
 		B8725949253D83900055CB40 /* NewLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLoginController.swift; sourceTree = "<group>"; };
 		B872596C253D97DF0055CB40 /* LoginAcctountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAcctountCell.swift; sourceTree = "<group>"; };
 		B872596D253D97DF0055CB40 /* LoginAcctountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginAcctountCell.xib; sourceTree = "<group>"; };
@@ -466,6 +468,8 @@
 		B83E39B524C9254D001E5BFD /* JiTaiRenXin */ = {
 			isa = PBXGroup;
 			children = (
+				B871677B2594E28D00ECE7B4 /* 吉泰仁心Debug.entitlements */,
+				B87167612594E24B00ECE7B4 /* 吉泰仁心Release.entitlements */,
 				B83E44B824C97C3C001E5BFD /* View */,
 				B83E44B924C97C47001E5BFD /* Model */,
 				B83E44B624C97C1D001E5BFD /* Controller */,
@@ -1346,6 +1350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "JiTaiRenXin/吉泰仁心Debug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Ziqin Wei (6U62SFB867)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
@@ -1366,7 +1371,7 @@
 				OTHER_CFLAGS = "-fno-exceptions";
 				PRODUCT_BUNDLE_IDENTIFIER = com.QingDaoJiTaiRenXin.com;
 				PRODUCT_NAME = "吉泰仁心";
-				PROVISIONING_PROFILE_SPECIFIER = 20201029DEVQingDaoJiTaiRenXin;
+				PROVISIONING_PROFILE_SPECIFIER = PushDEV20201224JiTai;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "JiTaiRenXin/App-Bridge.h";
 				SWIFT_VERSION = 5.0;
@@ -1380,7 +1385,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ziqin Wei (M37LZXN34B)";
+				CODE_SIGN_ENTITLEMENTS = "JiTaiRenXin/吉泰仁心Release.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development: Ziqin Wei (6U62SFB867)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = M37LZXN34B;
@@ -1400,7 +1406,7 @@
 				OTHER_CFLAGS = "-fno-exceptions";
 				PRODUCT_BUNDLE_IDENTIFIER = com.QingDaoJiTaiRenXin.com;
 				PRODUCT_NAME = "吉泰仁心";
-				PROVISIONING_PROFILE_SPECIFIER = 20201029PROQingDaoJiTaiRenXin;
+				PROVISIONING_PROFILE_SPECIFIER = PushDEV20201224JiTai;
 				SWIFT_OBJC_BRIDGING_HEADER = "JiTaiRenXin/App-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

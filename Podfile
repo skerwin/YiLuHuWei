@@ -49,4 +49,7 @@ pod 'ZFPlayer/AVPlayer', '~> 3.0'
  # 手写代码约束
 pod 'SnapKit', '~> 4.0.0'
 
+pod 'JCore', '2.1.4-noidfa'
+pod 'JPush', '3.2.4-noidfa' 
+
 end

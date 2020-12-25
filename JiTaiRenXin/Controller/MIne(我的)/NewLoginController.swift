@@ -222,6 +222,24 @@ class NewLoginController: BaseViewController, UITableViewDelegate, UITableViewDa
             setValueForKey(value: usermodel?.sex as AnyObject, key: Constants.gender)
             saveAccountAndPassword(account: phone!, password: password, token: token, userid: adzoneId!)
             
+            
+            JPUSHService.setAlias("\(adzoneId!)", completion: { (iResCode, iAlias, seq) in
+                                    print("iResCode---\(iResCode)")
+                                    print("iAlias---\(iAlias ?? "")")
+                                    print("seq---\(seq)")
+                                }, seq: 0)
+             JPUSHService.setTags(["医师主任"], completion: { (iResCode, tags,seq)  in
+                print("iResCode---\(iResCode)")
+                print("tags---\(tags ?? ["11"])")
+                print("seq---\(seq)")
+            }, seq: 1)
+            
+//            JPUSHService.deleteAlias({ (iResCode, iAlias, seq) in
+//                            print("iResCode---\(iResCode)")
+//                            print("iAlias---\(iAlias ?? "")")
+//                            print("seq---\(seq)")
+//                        }, seq: Int(UserDefaults.standard.string(forKey: "userId")))
+            
             //DialogueUtils.showSuccess(withStatus: "登陆成功")
             UIApplication.shared.keyWindow?.rootViewController = MainTabBarController()
             
