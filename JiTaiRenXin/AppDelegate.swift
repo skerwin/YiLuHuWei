@@ -96,7 +96,6 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
         }else{
             self.window?.rootViewController = UIStoryboard.getNewLoginController()
         }
-        print("111111")
         JPUSHService.registrationIDCompletionHandler { (resCode, registrationID) in
             print(registrationID)
         }
@@ -108,14 +107,12 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-        print("22222")
     }
     
  
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        print("33333")
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -154,6 +151,7 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
         
         let userInfo = notification.request.content.userInfo
+        print(userInfo)
         if notification.request.trigger is UNPushNotificationTrigger {
             JPUSHService.handleRemoteNotification(userInfo)
         }
@@ -164,6 +162,7 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
         let userInfo = response.notification.request.content.userInfo
+        print(userInfo)
         if response.notification.request.trigger is UNPushNotificationTrigger {
             JPUSHService.handleRemoteNotification(userInfo)
         }
@@ -173,8 +172,8 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     }
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification!) {
-        
-    }
+        let userInfo = notification.request.content.userInfo
+        print(userInfo)    }
     
 }
 
