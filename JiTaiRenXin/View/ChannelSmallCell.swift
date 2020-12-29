@@ -83,6 +83,7 @@ class ChannelSmallCell: UICollectionViewCell {
         controller.menupagetype = MenuPageType.HomeMore
         parentNavigationController?.pushViewController(controller, animated: true)
     }
+    @IBOutlet weak var sourceLabel1: UILabel!
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var headImage1: UIImageView!
     @IBOutlet weak var desc1: UILabel!
@@ -97,6 +98,7 @@ class ChannelSmallCell: UICollectionViewCell {
     @IBOutlet weak var writer2: UILabel!
     @IBOutlet weak var lookCount2: UILabel!
     @IBOutlet weak var commentCount2: UILabel!
+    @IBOutlet weak var sourceLabel2: UILabel!
     
     
     
@@ -106,7 +108,7 @@ class ChannelSmallCell: UICollectionViewCell {
     @IBOutlet weak var writer3: UILabel!
     @IBOutlet weak var lookCount3: UILabel!
     @IBOutlet weak var commentCount3: UILabel!
-    
+    @IBOutlet weak var sourceLabel3: UILabel!
     
     var modelList:[videoModel]? {
         didSet {
@@ -119,6 +121,7 @@ class ChannelSmallCell: UICollectionViewCell {
                 writer1.text = modelList![0].publisher?.name
                 lookCount1.text = intToString(number: modelList![0].hits)
                 commentCount1.text =  intToString(number: modelList![0].comments)
+                sourceLabel1.text = modelList![0].source
                 
             }else if modelList?.count == 2{
                 image1.displayImageWithURL(url: modelList![0].img_url)
@@ -127,6 +130,7 @@ class ChannelSmallCell: UICollectionViewCell {
                 writer1.text = modelList![0].publisher?.name
                 lookCount1.text = intToString(number: modelList![0].hits)
                 commentCount1.text =  intToString(number: modelList![0].comments)
+                sourceLabel1.text = modelList![0].source
                 
                 
                 image2.displayImageWithURL(url: modelList![1].img_url)
@@ -135,6 +139,8 @@ class ChannelSmallCell: UICollectionViewCell {
                 writer2.text = modelList![1].publisher?.name
                 lookCount2.text = intToString(number: modelList![1].hits)
                 commentCount2.text = intToString(number: modelList![1].comments)
+                sourceLabel2.text = modelList![1].source
+                
             }else if modelList!.count >= 3{
                 image1.displayImageWithURL(url: modelList![0].img_url)
                 headImage1.displayHeadImageWithURL(url: modelList![0].publisher?.avatar_url)
@@ -142,6 +148,7 @@ class ChannelSmallCell: UICollectionViewCell {
                 writer1.text = modelList![0].publisher?.name
                 lookCount1.text = intToString(number: modelList![0].hits)
                 commentCount1.text =  intToString(number: modelList![0].comments)
+                sourceLabel1.text = modelList![0].source
                 
                 image2.displayImageWithURL(url: modelList![1].img_url)
                 headImage2.displayHeadImageWithURL(url: modelList![1].publisher?.avatar_url)
@@ -149,6 +156,7 @@ class ChannelSmallCell: UICollectionViewCell {
                 writer2.text = modelList![1].publisher?.name
                 lookCount2.text = intToString(number: modelList![1].hits)
                 commentCount2.text = intToString(number: modelList![1].comments)
+                sourceLabel2.text = modelList![1].source
                 
                 
                 image3.displayImageWithURL(url: modelList![2].img_url)
@@ -157,6 +165,7 @@ class ChannelSmallCell: UICollectionViewCell {
                 writer3.text = modelList![2].publisher?.name
                 lookCount3.text = intToString(number: modelList![2].hits)
                 commentCount3.text = intToString(number: modelList![2].comments)
+                sourceLabel3.text = modelList![2].source
             }else{
                 return
             }

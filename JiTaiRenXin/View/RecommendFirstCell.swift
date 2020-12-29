@@ -21,6 +21,7 @@ class RecommendFirstCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBOutlet weak var sourcebel: UILabel!
     @IBOutlet weak var headImage: UIImageView!
     @IBOutlet weak var writer: UILabel!
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,6 +38,7 @@ class RecommendFirstCell: UITableViewCell {
                 commentCount.text = "\(model?.comments ?? 0)"
                 headImage.displayHeadImageWithURL(url: model?.publisher?.avatar_url)
                 writer.text = model?.publisher?.name
+                sourcebel.text = model?.source
                 
         }
     }

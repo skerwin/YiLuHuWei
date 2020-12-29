@@ -306,7 +306,7 @@ extension ChannelArticleController:UITableViewDataSource,UITableViewDelegate {
         }else if model.show_type == 3{
             return 150
         }else{
-            return 129
+            return 140
         }
         
     }

@@ -19,6 +19,7 @@ class VideoListCell: UITableViewCell {
     @IBOutlet weak var imageLeft: UIImageView!
     
     @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var sourcelabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,7 +43,7 @@ class VideoListCell: UITableViewCell {
         bannerImage.layer.cornerRadius = 3
         bannerImage.layer.masksToBounds = true
         
-        let view = UIView.init(frame: CGRect.init(x: 0, y: 200, width: screenWidth, height: 35))
+        let view = UIView.init(frame: CGRect.init(x: 0, y: 215, width: screenWidth, height: 35))
         view.addSubview(readCommentToolView)
         self.contentView.addSubview(view)
         
@@ -59,6 +60,7 @@ class VideoListCell: UITableViewCell {
             readCommentToolView.readCountLabel.text = "\(model?.hits ?? 0)"
             readCommentToolView.commentCountLabel.text = "\(model?.comments ?? 0)"
             readCommentToolView.goodeLabel.text = "\(model?.likes ?? 0)"
+            sourcelabel.text = model?.source
             
         }
     }

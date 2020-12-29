@@ -9,13 +9,17 @@
 import UIKit
 
 protocol CommentHeadViewDelegate: NSObjectProtocol {
-    func goodBtnAction()
+   // func goodBtnAction()
+    func sourceBtnAction()
 }
-
 
 class CommentHeadView: UIView {
 
     
+    @IBAction func sourceBtnAction(_ sender: Any) {
+        delegate?.sourceBtnAction()
+    }
+    @IBOutlet weak var sourceBtn: UIButton!
     @IBOutlet weak var videoTitlelabel: UILabel!
    // @IBOutlet weak var goodlabel: UILabel!
    // @IBOutlet weak var goodBtn: UIButton!

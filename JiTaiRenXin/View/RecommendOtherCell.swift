@@ -14,6 +14,7 @@ class RecommendOtherCell: UITableViewCell {
     
     @IBOutlet weak var content: UILabel!
     
+    @IBOutlet weak var sourcelabel: UILabel!
     @IBOutlet weak var headImage: UIImageView!
     @IBOutlet weak var writer: UILabel!
     @IBOutlet weak var readCount: UILabel!
@@ -42,6 +43,7 @@ class RecommendOtherCell: UITableViewCell {
             commentCount.text = "\(model?.comments ?? 0)"
             headImage.displayHeadImageWithURL(url: model?.publisher?.avatar_url)
             writer.text = model?.publisher?.name
+            sourcelabel.text = model?.source
         }
     }
     

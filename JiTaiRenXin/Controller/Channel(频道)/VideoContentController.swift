@@ -187,6 +187,7 @@ class VideoContentController: BaseViewController,Requestable {
     func creatHeadView() -> UIView {
         titleHeadView = Bundle.main.loadNibNamed("CommentHeadView", owner: nil, options: nil)!.first as? CommentHeadView
         titleHeadView!.frame = CGRect.init(x: 0, y: 0, width: screenWidth, height: 50)
+        titleHeadView.delegate = self
         //chatHeadView.goodBtn.setImage(UIImage.init(named: "good"), for: .normal)
         //chatHeadView.backgroundColor = UIColor.yellow
         // self.view.addSubview(self.titleHeadView)
@@ -246,6 +247,7 @@ class VideoContentController: BaseViewController,Requestable {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.player.isViewControllerDisappear = false
+        self.player.playTheIndex(0)
         
     
     }
@@ -313,6 +315,8 @@ class VideoContentController: BaseViewController,Requestable {
             self.player.assetURLs = self.assetURLs;
             self.playClick()
             titleHeadView.videoTitlelabel.text = vmodel?.title
+            titleHeadView.sourceBtn.titleLabel?.text = vmodel?.source
+            titleHeadView.sourceBtn.setTitle(vmodel?.source, for: .normal)
             goodCount = vmodel!.likes
             chatHeadView.goodLabel.text = "点赞数" + "\(goodCount)"
             chatBlankHeadView.goodCountlabel.text = "点赞数" + "\(goodCount)"
@@ -612,7 +616,16 @@ extension VideoContentController:ACommentBlankHeadViewDelegate {
         
         self.goodData ()
     }
+ 
+ }
+extension VideoContentController:CommentHeadViewDelegate {
+    func sourceBtnAction() {
+    
+        let controller = NewNotifyDetailController()
+        controller.urlString = vmodel?.videoInfoModel!.video_url ?? ""
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     
     
-    
-}
+ 
+ }

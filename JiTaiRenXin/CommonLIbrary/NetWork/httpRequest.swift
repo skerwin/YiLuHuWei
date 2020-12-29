@@ -66,8 +66,8 @@ struct HttpRequest {
                     return
                 }
                 let responseJson = JSON(dict)
-                //print(Url!.absoluteString)
-                //print(responseJson)
+//                print(Url!.absoluteString)
+//                print(responseJson)
                 completionHandler(.Success(responseJson))
             case .failure:
                 //print("数据请求出错")

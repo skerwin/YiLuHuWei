@@ -18,6 +18,7 @@ class ImageAndContentCell: UITableViewCell {
 
     @IBOutlet weak var headImage: UIImageView!
     
+    @IBOutlet weak var souceLabel: UILabel!
     
     @IBOutlet weak var writerLabel: UILabel!
     
@@ -55,6 +56,7 @@ class ImageAndContentCell: UITableViewCell {
                 goodLabel.text = "\(model?.likes ?? 0)"
                 headImage.displayHeadImageWithURL(url: model?.publisher?.avatar_url)
                 writerLabel.text = model?.publisher?.name
+                souceLabel.text = model?.source
                    
                     
             }
@@ -69,7 +71,7 @@ class ImageAndContentCell: UITableViewCell {
                 goodLabel.text = "\(modelCase?.likes ?? 0)"
                 headImage.displayHeadImageWithURL(url: modelCase?.publisher?.avatar_url)
                 writerLabel.text = modelCase?.publisher?.name
-                    
+                souceLabel.text = model?.source
             }
      }
 }

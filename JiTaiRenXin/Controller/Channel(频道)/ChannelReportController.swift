@@ -296,7 +296,7 @@ extension ChannelReportController:UITableViewDataSource,UITableViewDelegate {
         }else if model.show_type == 2{
             return 150
         }else{
-            return 129
+            return 140
         }
         
     }

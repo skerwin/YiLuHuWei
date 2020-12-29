@@ -13,7 +13,7 @@ struct videoModel : Mappable {
     var title = "" //标题
     var obj_type = 0 //1文章 2视频 3病例
     var source = "" //来源
-    var source_link = -1 //来源地址
+    var source_link = "" //来源地址
     var user_type = -1 //
     var user_id = -1
     var img_id = -1

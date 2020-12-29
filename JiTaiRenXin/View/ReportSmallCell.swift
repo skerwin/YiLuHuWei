@@ -94,6 +94,7 @@ class ReportSmallCell: UICollectionViewCell {
         
     }
     
+    @IBOutlet weak var sourceLabel1: UILabel!
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var headImage1: UIImageView!
     @IBOutlet weak var desc1: UILabel!
@@ -102,6 +103,7 @@ class ReportSmallCell: UICollectionViewCell {
     @IBOutlet weak var commentCount1: UILabel!
     
     
+    @IBOutlet weak var sourceLabe2: UILabel!
     @IBOutlet weak var image2: UIImageView!
     @IBOutlet weak var headImage2: UIImageView!
     @IBOutlet weak var desc2: UILabel!
@@ -111,6 +113,7 @@ class ReportSmallCell: UICollectionViewCell {
     
     
     
+    @IBOutlet weak var sourceLabel3: UILabel!
     @IBOutlet weak var image3: UIImageView!
     @IBOutlet weak var headImage3: UIImageView!
     @IBOutlet weak var desc3: UILabel!
@@ -135,6 +138,7 @@ class ReportSmallCell: UICollectionViewCell {
                 writer1.text = modelList![0].publisher?.name
                 lookCount1.text = intToString(number: modelList![0].hits)
                 commentCount1.text =  intToString(number: modelList![0].comments)
+                sourceLabel1.text = modelList![0].source
                 
             }else if modelList?.count == 2{
                 image1.displayImageWithURL(url: modelList![0].img_url)
@@ -143,6 +147,7 @@ class ReportSmallCell: UICollectionViewCell {
                 writer1.text = modelList![0].publisher?.name
                 lookCount1.text = intToString(number: modelList![0].hits)
                 commentCount1.text =  intToString(number: modelList![0].comments)
+                sourceLabel1.text = modelList![0].source
                 
                 
                 image2.displayImageWithURL(url: modelList![1].img_url)
@@ -151,6 +156,8 @@ class ReportSmallCell: UICollectionViewCell {
                 writer2.text = modelList![1].publisher?.name
                 lookCount2.text = intToString(number: modelList![1].hits)
                 commentCount2.text = intToString(number: modelList![1].comments)
+                sourceLabe2.text = modelList![1].source
+                
             }else if modelList!.count >= 3{
                 image1.displayImageWithURL(url: modelList![0].img_url)
                 headImage1.displayHeadImageWithURL(url: modelList![0].publisher?.avatar_url)
@@ -158,6 +165,7 @@ class ReportSmallCell: UICollectionViewCell {
                 writer1.text = modelList![0].publisher?.name
                 lookCount1.text = intToString(number: modelList![0].hits)
                 commentCount1.text =  intToString(number: modelList![0].comments)
+                sourceLabel1.text = modelList![0].source
                 
                 
                 image2.displayImageWithURL(url: modelList![1].img_url)
@@ -166,7 +174,7 @@ class ReportSmallCell: UICollectionViewCell {
                 writer2.text = modelList![1].publisher?.name
                 lookCount2.text = intToString(number: modelList![1].hits)
                 commentCount2.text = intToString(number: modelList![1].comments)
-                
+                sourceLabe2.text = modelList![1].source
                 
                 image3.displayImageWithURL(url: modelList![2].img_url)
                 headImage3.displayHeadImageWithURL(url: modelList![2].publisher?.avatar_url)
@@ -174,6 +182,7 @@ class ReportSmallCell: UICollectionViewCell {
                 writer3.text = modelList![2].publisher?.name
                 lookCount3.text = intToString(number: modelList![2].hits)
                 commentCount3.text = intToString(number: modelList![2].comments)
+                sourceLabel3.text = modelList![2].source
             }else{
                 return
             }
