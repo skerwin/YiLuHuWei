@@ -71,22 +71,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E08E9F1C-79EB-4B8B-9165-C7C39B304CB8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JiTaiRenXin/CommonLIbrary/Protocol/Requestable.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "processResponseResult(requestPath:responseResult:methodType:needCache:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "30669383-4280-43B7-91AA-EBD866A46BA4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -100,14 +84,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "30669383-4280-43B7-91AA-EBD866A46BA4 - 7cfff645ad4bf1e7"
+                  uuid = "30669383-4280-43B7-91AA-EBD866A46BA4 - 3f3812e33aa832eb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "&#x5409;&#x6cf0;&#x4ec1;&#x5fc3;.BaseTableController.tokenDlete(note: __C.NSNotification) -&gt; ()"
                   moduleName = "&#x5409;&#x6cf0;&#x4ec1;&#x5fc3;"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wakiyama/Desktop/JiTaiRenXin/JiTaiRenXin/Controller/BaseController/BaseTableController.swift"
+                  urlString = "file:///Users/wakiyama/Desktop/JITAI/JiTaiRenXin/JiTaiRenXin/Controller/BaseController/BaseTableController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -115,14 +99,14 @@
                   offsetFromSymbolStart = "172">
                </Location>
                <Location
-                  uuid = "30669383-4280-43B7-91AA-EBD866A46BA4 - 64edc259141ca2f1"
+                  uuid = "30669383-4280-43B7-91AA-EBD866A46BA4 - 272a26ff83ff61fd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (&#x5409;&#x6cf0;&#x4ec1;&#x5fc3;.AlertButtonType) -&gt; () in &#x5409;&#x6cf0;&#x4ec1;&#x5fc3;.BaseTableController.tokenDlete(note: __C.NSNotification) -&gt; ()"
                   moduleName = "&#x5409;&#x6cf0;&#x4ec1;&#x5fc3;"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wakiyama/Desktop/JiTaiRenXin/JiTaiRenXin/Controller/BaseController/BaseTableController.swift"
+                  urlString = "file:///Users/wakiyama/Desktop/JITAI/JiTaiRenXin/JiTaiRenXin/Controller/BaseController/BaseTableController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -130,22 +114,6 @@
                   offsetFromSymbolStart = "60">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9AB50AEB-4D96-4AAE-9D14-88D7CE2ACB4D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JiTaiRenXin/CommonLIbrary/Protocol/Requestable.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "processResponseResult(requestPath:responseResult:methodType:needCache:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -164,14 +132,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C7495360-7360-4718-8928-BEE850ADD8DF - 2a4dabba5b8543b3"
+                  uuid = "C7495360-7360-4718-8928-BEE850ADD8DF - 698a4f1ccc6684a7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "&#x5409;&#x6cf0;&#x4ec1;&#x5fc3;.BaseTableController.tokenChange(note: __C.NSNotification) -&gt; ()"
                   moduleName = "&#x5409;&#x6cf0;&#x4ec1;&#x5fc3;"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wakiyama/Desktop/JiTaiRenXin/JiTaiRenXin/Controller/BaseController/BaseTableController.swift"
+                  urlString = "file:///Users/wakiyama/Desktop/JITAI/JiTaiRenXin/JiTaiRenXin/Controller/BaseController/BaseTableController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
@@ -179,14 +147,14 @@
                   offsetFromSymbolStart = "172">
                </Location>
                <Location
-                  uuid = "C7495360-7360-4718-8928-BEE850ADD8DF - 136dfedca41f401d"
+                  uuid = "C7495360-7360-4718-8928-BEE850ADD8DF - 50aa1a7a33fc8709"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (&#x5409;&#x6cf0;&#x4ec1;&#x5fc3;.AlertButtonType) -&gt; () in &#x5409;&#x6cf0;&#x4ec1;&#x5fc3;.BaseTableController.tokenChange(note: __C.NSNotification) -&gt; ()"
                   moduleName = "&#x5409;&#x6cf0;&#x4ec1;&#x5fc3;"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wakiyama/Desktop/JiTaiRenXin/JiTaiRenXin/Controller/BaseController/BaseTableController.swift"
+                  urlString = "file:///Users/wakiyama/Desktop/JITAI/JiTaiRenXin/JiTaiRenXin/Controller/BaseController/BaseTableController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
@@ -209,6 +177,112 @@
             startingLineNumber = "140"
             endingLineNumber = "140"
             landmarkName = "searchAction(searchText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4C1E491-B607-4E94-8D75-D1633BAADEE8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98186F6D-7113-40E5-86D2-D56248DF947F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43F3361E-09C3-4066-B320-5665AA138454"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4258BB2-8B59-429F-AA70-35EDF17D1671"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "changeWebView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30521F4A-8053-4E40-8232-91DAE4F187A6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "loadWebView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B47950FA-4E68-49A6-B19D-B24D9E1CC371"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "webView(_:didReceive:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C43F6690-AEFD-4B6A-BDD9-8D65CA6168EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewLoginController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "backAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

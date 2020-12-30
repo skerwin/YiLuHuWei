@@ -66,11 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
          window?.makeKeyAndVisible()
          window?.backgroundColor = UIColor.white
-        if (stringForKey(key: Constants.token) != nil && stringForKey(key: Constants.token) != "") {
+//        if (stringForKey(key: Constants.token) != nil && stringForKey(key: Constants.token) != "") {
             self.window?.rootViewController =  MainTabBarController()
-        }else{
-            self.window?.rootViewController = UIStoryboard.getNewLoginController()
-        }
+//        }else{
+//            self.window?.rootViewController = UIStoryboard.getNewLoginController()
+//        }
         
         return true
     }

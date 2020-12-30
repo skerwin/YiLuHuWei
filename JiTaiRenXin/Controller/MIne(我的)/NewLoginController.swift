@@ -103,10 +103,14 @@ class NewLoginController: BaseViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-//    @IBAction func backAction(_ sender: Any) {
-//        self.reloadLogin!()
-//        self.dismiss(animated: true, completion: nil)
-//    }
+    
+    //之后要删除的方法
+    @IBOutlet weak var backBtn: UIButton!
+    
+    @IBAction func backAction(_ sender: Any) {
+        //self.reloadLogin!()
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func forgetPwdAction(_ sender: Any) {
         let controller = UIStoryboard.getGetBackPasswordController()

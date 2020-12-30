@@ -115,8 +115,9 @@ class MineViewController: BaseTableController,Requestable{
             logoutBtn.isHidden = true
             self.nameLbel.text = "登录/注册"
             self.headImage.displayHeadImageWithURL(url: "")
+            tableView.reloadData()
             
-            UIApplication.shared.keyWindow?.rootViewController = UIStoryboard.getNewLoginController()
+           // UIApplication.shared.keyWindow?.rootViewController = UIStoryboard.getNewLoginController()
             
             
             return
