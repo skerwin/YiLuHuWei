@@ -111,6 +111,28 @@ class MineViewController: BaseTableController,Requestable{
         super.onResponse(requestPath: requestPath, responseResult: responseResult, methodType: methodType)
         if requestPath == HomeAPI.logoutAccount {
             
+            
+            JPUSHService.getAlias({ (iResCode, iAlias, seq) in
+                print("iResCode---\(iResCode)")
+                print("iAlias---\(iAlias ?? "")")
+                print("seq---\(seq)")
+            }, seq: 10000)
+            
+             JPUSHService.deleteAlias({ (iResCode, iAlias, seq) in
+                print("iResCode---\(iResCode)")
+                print("iAlias---\(iAlias ?? "")")
+                print("seq---\(seq)")
+            }, seq: 10000)
+            
+            JPUSHService.getAlias({ (iResCode, iAlias, seq) in
+                print("iResCode---\(iResCode)")
+                print("iAlias---\(iAlias ?? "")")
+                print("seq---\(seq)")
+            }, seq: 10000)
+            
+            
+      
+            
             self.logoutAccount(account: "")
             logoutBtn.isHidden = true
             self.nameLbel.text = "登录/注册"
@@ -156,7 +178,6 @@ class MineViewController: BaseTableController,Requestable{
             if self.currentIsLogin() == true {
                 self.showSingleButtonAlertDialog(message: "您的账号已在其他终端登陆，或账号已被修改，请重新登录") { (type) in
                     //self.logoutAccount(account: "")
-                  
                     self.pushLoginController()
                 }
             }

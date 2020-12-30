@@ -191,9 +191,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "jpushNotificationCenter(_:willPresent:withCompletionHandler:)"
-            landmarkType = "7">
+            endingLineNumber = "155">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -207,9 +205,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "jpushNotificationCenter(_:didReceive:withCompletionHandler:)"
-            landmarkType = "7">
+            endingLineNumber = "166">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -223,8 +219,54 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "jpushNotificationCenter(_:openSettingsFor:)"
+            endingLineNumber = "175">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4258BB2-8B59-429F-AA70-35EDF17D1671"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "changeWebView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30521F4A-8053-4E40-8232-91DAE4F187A6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "loadWebView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B47950FA-4E68-49A6-B19D-B24D9E1CC371"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "webView(_:didReceive:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

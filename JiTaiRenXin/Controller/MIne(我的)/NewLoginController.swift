@@ -227,18 +227,7 @@ class NewLoginController: BaseViewController, UITableViewDelegate, UITableViewDa
                                     print("iResCode---\(iResCode)")
                                     print("iAlias---\(iAlias ?? "")")
                                     print("seq---\(seq)")
-                                }, seq: 0)
-             JPUSHService.setTags(["医师主任"], completion: { (iResCode, tags,seq)  in
-                print("iResCode---\(iResCode)")
-                print("tags---\(tags ?? ["11"])")
-                print("seq---\(seq)")
-            }, seq: 1)
-            
-//            JPUSHService.deleteAlias({ (iResCode, iAlias, seq) in
-//                            print("iResCode---\(iResCode)")
-//                            print("iAlias---\(iAlias ?? "")")
-//                            print("seq---\(seq)")
-//                        }, seq: Int(UserDefaults.standard.string(forKey: "userId")))
+                                }, seq: 10000)
             
             //DialogueUtils.showSuccess(withStatus: "登陆成功")
             UIApplication.shared.keyWindow?.rootViewController = MainTabBarController()
