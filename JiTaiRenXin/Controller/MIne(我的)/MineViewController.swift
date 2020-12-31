@@ -114,19 +114,19 @@ class MineViewController: BaseTableController,Requestable{
             
             JPUSHService.getAlias({ (iResCode, iAlias, seq) in
                 print("iResCode---\(iResCode)")
-                print("iAlias---\(iAlias ?? "")")
+                print("11getiAlias---\(iAlias ?? "")")
                 print("seq---\(seq)")
             }, seq: 10000)
             
              JPUSHService.deleteAlias({ (iResCode, iAlias, seq) in
                 print("iResCode---\(iResCode)")
-                print("iAlias---\(iAlias ?? "")")
+                print("deleteiAlias---\(iAlias ?? "")")
                 print("seq---\(seq)")
             }, seq: 10000)
             
             JPUSHService.getAlias({ (iResCode, iAlias, seq) in
                 print("iResCode---\(iResCode)")
-                print("iAlias---\(iAlias ?? "")")
+                print("22getiAlias---\(iAlias ?? "")")
                 print("seq---\(seq)")
             }, seq: 10000)
             

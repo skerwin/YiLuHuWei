@@ -15,15 +15,17 @@ struct URLs {
          case Product    = 3 // 生产环境
      }
     //http://jimin.lnyouran.com/api/sms/send
-   // https://demo.lnyouran.com
+   // https://demo.lnyouran.com //测试
+    
+   //  "http://jitai.lnyouran.com" //线上
     static var currentEnvironment       = Environment.SIT
     static let currentEnvironmentKey    = "currentEnvironment"
     
-    static let sitHostAddress           = "http://jitai.lnyouran.com"
-    static let productHostAddress       = "http://jitai.lnyouran.com"
+    static let sitHostAddress           = "https://demo.lnyouran.com"
+    static let productHostAddress       = "https://demo.lnyouran.com"
  
     static func getAPIIp() -> String {
-        return "http://jitai.lnyouran.com"
+        return "https://demo.lnyouran.com"
     }
   
     

@@ -21,30 +21,23 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         
-        //注册极光推送
-        let entity = JPUSHRegisterEntity()
-        entity.types = 1 << 0 | 1 << 1 | 1 << 2
-        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
         
-        //通知类型（这里将声音、消息、提醒角标都给加上）
-        let userSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound],
-                                                      categories: nil)
-        if ((UIDevice.current.systemVersion as NSString).floatValue >= 8.0) {
-            //可以添加自定义categories
-            JPUSHService.register(forRemoteNotificationTypes: userSettings.types.rawValue,
-                                  categories: nil)
+        let remoteNotification = launchOptions?[UIApplication.LaunchOptionsKey(rawValue: "UIApplicationLaunchOptionsRemoteNotificationKey")];
+        if (remoteNotification != nil) {
+            print(remoteNotification)
         }
-        else {
-            //categories 必须为nil
-            JPUSHService.register(forRemoteNotificationTypes: userSettings.types.rawValue,
-                                  categories: nil)
-        }
+       //
+        
+      //  NSDictionary *remoteNotification = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey]
+        
+        if (stringForKey(key: Constants.token) != nil && stringForKey(key: Constants.token) != "") {
+            
+         }else{
+            JPUSHServiceRegister(launchOptions: launchOptions)
+         }
         
         
-        
-        
-        JPUSHService.setup(withOption: launchOptions, appKey: AppKey, channel: "App Store", apsForProduction: false, advertisingIdentifier: nil)
- 
+       
         
         
         
@@ -103,6 +96,31 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     }
     
     
+    
+    func JPUSHServiceRegister(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        //注册极光推送
+        let entity = JPUSHRegisterEntity()
+        entity.types = 1 << 0 | 1 << 1 | 1 << 2
+        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
+        
+        //通知类型（这里将声音、消息、提醒角标都给加上）
+        let userSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound],
+                                                      categories: nil)
+        if ((UIDevice.current.systemVersion as NSString).floatValue >= 8.0) {
+            //可以添加自定义categories
+            JPUSHService.register(forRemoteNotificationTypes: userSettings.types.rawValue,
+                                  categories: nil)
+        }
+        else {
+            //categories 必须为nil
+            JPUSHService.register(forRemoteNotificationTypes: userSettings.types.rawValue,
+                                  categories: nil)
+        }
+        
+         JPUSHService.setup(withOption: launchOptions, appKey: AppKey, channel: "App Store", apsForProduction: false, advertisingIdentifier: nil)
+ 
+    }
+    
     //
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -125,7 +143,65 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     
     //点推送进来执行这个方法
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("didReceiveRemoteNotification")
+        print(userInfo)
+        
+        let tabc = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+        let nvc = tabc.selectedViewController as! MainNavigationController
+        let vc = nvc.viewControllers.last
+        
+        if let msg_type = userInfo["msg_type"] {
+            print(msg_type)
+            if msg_type as! Int == 0{  //系统消息
+                
+                if (stringForKey(key: Constants.token) != nil && stringForKey(key: Constants.token) != "") {
+                    let dvc = NotifyController()
+                    vc?.navigationController?.pushViewController(dvc, animated: true)
+                }else{
+                    let dvc =  UIStoryboard.getNewLoginController()
+                    vc?.navigationController?.pushViewController(dvc, animated: true)
+                }
+            }else{         //内容消息
+                if let obj_type = userInfo["obj_type"] {
+                    
+                    let msg_id = userInfo["msg_id"] as! Int
+                    print(obj_type)
+                    print(msg_id)
+                    
+                    if (stringForKey(key: Constants.token) != nil && stringForKey(key: Constants.token) != "") {
+                        if obj_type as! Int == 0{  //系统消息
+                            //文章
+                            let dvc = ArcticleDetailController()
+                            dvc.fid = msg_id
+                            dvc.menytype = MenuType.Articel
+                            vc?.navigationController?.pushViewController(dvc, animated: true)
+                        }else if obj_type as! Int == 1{
+                            
+                            let dvc = VideoContentController()
+                            dvc.fid = msg_id
+                            vc?.navigationController?.pushViewController(dvc, animated: true)
+                             //视频
+                        }else if obj_type as! Int == 2{
+                            
+                            let dvc = ArcticleDetailController()
+                            dvc.fid = msg_id
+                            dvc.menytype = MenuType.Articel
+                            vc?.navigationController?.pushViewController(dvc, animated: true)
+                            //病例
+                        }
+                    }else{
+                        let dvc =  UIStoryboard.getNewLoginController()
+                        vc?.navigationController?.pushViewController(dvc, animated: true)
+                    }
+                   
+                }
+            }
+          
+        }
+   
+    
         JPUSHService.handleRemoteNotification(userInfo)
+        
         completionHandler(UIBackgroundFetchResult.newData)
         
     }
@@ -140,6 +216,7 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
         print("did Fail To Register For Remote Notifications With Error: \(error)")
     }
     
+ 
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         //在应用进入后台时清除推送消息角标
@@ -149,6 +226,7 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
+        print("willPresent")
         
         let userInfo = notification.request.content.userInfo
         print(userInfo)
@@ -161,8 +239,35 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
+        print("didReceive")
+       
         let userInfo = response.notification.request.content.userInfo
+       
         print(userInfo)
+        if let msg_type = userInfo["msg_type"] {
+            print(msg_type)
+            if msg_type as! Int == 0{  //系统消息
+                
+            }else{         //内容消息
+                if let obj_type = userInfo["obj_type"] {
+                    
+                    let msg_id = userInfo["msg_id"] as! Int
+                    print(obj_type)
+                    print(msg_id)
+                    if obj_type as! Int == 0{  //系统消息
+                        //文章
+                    }else if obj_type as! Int == 1{
+                        //视频
+                    }else if obj_type as! Int == 2{
+                        //病例
+                    }
+                }
+            }
+          
+        }
+        
+        let tabController = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+        let nvc = tabController.selectedViewController
         if response.notification.request.trigger is UNPushNotificationTrigger {
             JPUSHService.handleRemoteNotification(userInfo)
         }
@@ -172,8 +277,17 @@ class AppDelegate: UIResponder,JPUSHRegisterDelegate, UIApplicationDelegate {
     }
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification!) {
+        print("openSettingsFor")
+        
         let userInfo = notification.request.content.userInfo
-        print(userInfo)    }
+        print(userInfo)
+        if ((notification) != nil) {
+          //从通知界面直接进入应用
+        }else{
+          //从通知设置界面进入应用
+        }
+        
+    }
     
 }
 

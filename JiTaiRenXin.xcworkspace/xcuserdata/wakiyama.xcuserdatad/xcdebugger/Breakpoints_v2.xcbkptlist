@@ -190,8 +190,10 @@
             filePath = "JiTaiRenXin/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155">
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "jpushNotificationCenter(_:willPresent:withCompletionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -204,8 +206,10 @@
             filePath = "JiTaiRenXin/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166">
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "jpushNotificationCenter(_:didReceive:withCompletionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,8 +222,10 @@
             filePath = "JiTaiRenXin/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175">
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "jpushNotificationCenter(_:openSettingsFor:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -267,6 +273,38 @@
             startingLineNumber = "91"
             endingLineNumber = "91"
             landmarkName = "webView(_:didReceive:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C43F6690-AEFD-4B6A-BDD9-8D65CA6168EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewLoginController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "forgetPwdAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "401457B7-667D-4EED-9676-EE41E71A2043"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

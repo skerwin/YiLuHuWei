@@ -33,7 +33,7 @@ struct HttpRequest {
         let  Url = URL.init(string: URLs.getHostAddress() + requestPath)
         // let  Url = URL.init(string:requestPath)
         var request: DataRequest?
-        print(Url!.absoluteString)
+        //print(Url!.absoluteString)
         let parametersJson = JSON(parameters!)
         //print(parametersJson)
         
@@ -66,8 +66,8 @@ struct HttpRequest {
                     return
                 }
                 let responseJson = JSON(dict)
-                print(Url!.absoluteString)
-                print(responseJson)
+                //print(Url!.absoluteString)
+                //print(responseJson)
                 completionHandler(.Success(responseJson))
             case .failure:
                 //print("数据请求出错")
