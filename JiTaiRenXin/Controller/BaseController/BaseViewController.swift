@@ -41,6 +41,13 @@ class BaseViewController: UIViewController,AlertPresenter,LoadingPresenter,Accou
         return
     }
     
+    func isNative() -> Bool{
+        if (stringForKey(key: "ios_orig") != nil && stringForKey(key: "ios_orig") != "" && stringForKey(key: "ios_orig") == "1") {
+            return true
+        }else{
+            return false
+        }
+    }
     
     @objc func tokenDlete(note: NSNotification){
         

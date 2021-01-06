@@ -20,7 +20,9 @@ class NewNotifyDetailController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        urlString = model?.web_url ?? ""
+        if urlString == "" {
+            urlString = model?.web_url ?? ""
+        }
         loadWebView()
         
     }

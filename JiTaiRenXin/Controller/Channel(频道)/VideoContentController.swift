@@ -493,14 +493,17 @@ extension VideoContentController:CommentBarControllerDelegate{
 }
 extension VideoContentController:UITableViewDataSource,UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //   tableView.tableViewDisplayWithMsg(message: "请稍候", rowCount: commentModelList.count ,isdisplay: true)
         if commentModelList.count == 0{
             return 1
         }else{
             return commentModelList.count
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if commentModelList.count == 0{
+            return 1
+        }else{
+            return commentModelList[section].count
         }
         //   tableView.tableViewDisplayWithMsg(message: "请稍候", rowCount: commentModelList.count ,isdisplay: true)
     }
@@ -509,10 +512,12 @@ extension VideoContentController:UITableViewDataSource,UITableViewDelegate {
     {
         let section = indexPath.section
         let row = indexPath.row
+        
         if commentModelList.count == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentPlacCell", for: indexPath) as! commentPlacCell
             return cell
         }else{
+            
             let modelList = commentModelList[section]
             
             if (modelList[row].parent_id) == 0{
@@ -532,34 +537,44 @@ extension VideoContentController:UITableViewDataSource,UITableViewDelegate {
             }
         }
     }
-    
+ 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if commentModelList.count == 0{
-
-            return chatBlankHeadView
+        if section == 0 {
+            if commentModelList.count == 0 {
+                return chatBlankHeadView
+            }else{
+                return chatHeadView
+            }
         }else{
-
-            return chatHeadView
+            return UIView()
         }
-
+        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if commentModelList.count == 0{
-            return 365
+        if section == 0 {
+            if commentModelList.count == 0{
+                return 365
+            }else{
+                return 100
+            }
         }else{
-            return 100
+            return 0
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         resetChatBarFrame()
     }
 }
 extension VideoContentController:CommentCellDelegate {
+    func blockActiion(cmodel: CommentModel) {
+        
+    }
+    
+    func blockAllActiion(cmodel: CommentModel) {
+        
+    }
+    
  
     func complainActiion(cmodel: CommentModel) {
         

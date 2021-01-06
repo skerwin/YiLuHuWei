@@ -1,4 +1,12 @@
 //
+//  NativeArticleController.swift
+//  JiTaiRenXin
+//
+//  Created by zhaoyuanjing on 2020/12/31.
+//  Copyright © 2020 gansukanglin. All rights reserved.
+//
+
+//
 //  ArcticleDetailController.swift
 //  JiTaiRenXin
 //
@@ -12,7 +20,7 @@ import ObjectMapper
 import SwiftyJSON
 import MJRefresh
 
-class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelegate {
+class NativeArticleController: BaseViewController ,Requestable, UIWebViewDelegate {
     
     var urlString: String?
     // 进度条
@@ -21,7 +29,7 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
     var tableView:UITableView!
     
     var fid:Int?   //这是外级id，可能是文章id或者病例ID
-   
+    
     
     var commentModelList = [Array<CommentModel>]()
     
@@ -35,6 +43,10 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
     var chatHeadView:ACommentBlankHeadView!
     
     var chatBlankHeadView:CommentBlankHeadView!
+    
+    
+    var articleDetailView:ArticleDetailView!
+    
     
     var type = 1
     
@@ -58,7 +70,7 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
         }
         barVC.delegate = self
         return barVC
-        }()
+    }()
     
     override func viewDidLoad() {
         self.title = "详情"
@@ -79,10 +91,12 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
         }else if menytype == MenuType.Video{
             type = 3
         }
-        creatSectionView() 
+        creatSectionView()
+        creatHeadView()
         loadData()
         
         initTableView()
+        pullloadData()
         self.addChild(commentBarVC)
         
         
@@ -91,26 +105,26 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
             let noticeView = UIAlertController.init(title: "温馨提示", message: "本APP只作为学术学习工具，您在做任何医疗决定时必须去专业的医疗机构寻求医生的建议，本APP不提供任何的医疗决定服务", preferredStyle: .alert)
             noticeView.addAction(UIAlertAction.init(title: "已了解", style: .default, handler: { (action) in
                 setStringValueForKey(value: "ExemptionAgreement" as String, key: Constants.ExemptionAgreement)
-
+                
             }))
             self.present(noticeView, animated: true, completion: nil)
         }
- 
+        
     }
     
-    func loadWebView() {
-        
-        var myRequest = URLRequest(url: URL.init(string: urlString!)!)
-        myRequest.cachePolicy = .useProtocolCachePolicy
-        myRequest.timeoutInterval = 60
-        self.changeWebView.load(myRequest)
-        
-    }
+    //    func loadWebView() {
+    //
+    //        var myRequest = URLRequest(url: URL.init(string: urlString!)!)
+    //        myRequest.cachePolicy = .useProtocolCachePolicy
+    //        myRequest.timeoutInterval = 60
+    //        self.changeWebView.load(myRequest)
+    //
+    //    }
     func loadData(){
         if menytype == MenuType.Articel{
             let ArticleDetailParams = HomeAPI.ContentDetailPathAndParams(id:fid!)
             postRequest(pathAndParams: ArticleDetailParams,showHUD: false)
-      
+            
         }else if menytype == MenuType.Report{
             
             let requestParams = HomeAPI.ContentDetailPathAndParams(id:fid!)
@@ -146,12 +160,34 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
         chatHeadView.delegate = self
         chatHeadView.goodbtn.setImage(UIImage.init(named: "good"), for: .normal)
     }
+    func creatHeadView() {
+        
+        articleDetailView = (Bundle.main.loadNibNamed("ArticleDetailView", owner: nil, options: nil)!.first as! ArticleDetailView)
+        articleDetailView.frame = CGRect.init(x: 0, y: 0, width: screenWidth, height: 529)
+        //chatBlankHeadView.delegate = self
+  
+    }
+ 
     func goodData (){
         
         let requestlParams = HomeAPI.ContentlikePathAndParams(id:fid!)
         postRequest(pathAndParams: requestlParams,showHUD: false)
- 
     }
+    
+    
+    func postblockAction(cmodel: CommentModel){
+        let requestlParams = HomeAPI.shieldPathAndParams(id: cmodel.id )
+        postRequest(pathAndParams: requestlParams,showHUD: false)
+    }
+    
+    func postblockAllComment(cmodel: CommentModel){
+        
+        let requestlParams = HomeAPI.blackPathAndParams(user_id: cmodel.users?.id ?? 0)
+        postRequest(pathAndParams: requestlParams,showHUD: false)
+        
+        
+    }
+    
     func pullloadData(){
         
         let commentPathParams = HomeAPI.commentPathAndParams(pageSize:pagenum, page: page,id:fid!)
@@ -167,7 +203,7 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
         }
         
         let saveCommentParams = HomeAPI.saveCommentPathAndParams(obj_id: fid ?? 0, parent_id: parent_id, content: message)
- 
+        
         postRequest(pathAndParams: saveCommentParams,showHUD: false)
         toCommentModel = nil
     }
@@ -177,6 +213,32 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
         super.onFailure(responseCode: responseCode, description: description, requestPath: requestPath)
     }
     
+ //   let "attrstring":NSMutableAttributedString = NSMutableAttributedString(string:strg)
+    func attrHtmlStringFrom(content: String) -> NSAttributedString{
+      
+     
+        //let strCon = content as! NSString
+        var attrstring:NSAttributedString!
+        
+        let str = String.localizedStringWithFormat("<html><meta content=\"width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=0; \" name=\"viewport\" /><body style=\"overflow-wrap:break-word;word-break:break-all;white-space: normal; font-size:15px; color:#A4A4A4; \">%@</body></html>", content)
+    
+        
+        attrstring = str.html2AttributedString
+
+        return attrstring
+        
+    }
+    
+    func html2String(content: String) -> String{
+       
+        let str = String.localizedStringWithFormat("<html><meta content=\"width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=0; \" name=\"viewport\" /><body style=\"overflow-wrap:break-word;word-break:break-all;white-space: normal; font-size:16px; color:#000000; \">%@</body></html>", content)
+        //return str
+        return str
+        
+    }
+   // let attrstring:NSMutableAttributedString = NSMutableAttributedString(string:strg)
+    
+    
     override func onResponse(requestPath: String, responseResult: JSON, methodType: HttpMethodType){
         super.onResponse(requestPath: requestPath, responseResult: responseResult, methodType: methodType)
         tableView.mj_header?.endRefreshing()
@@ -184,15 +246,41 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
         
         var list:[CommentModel]!
         if requestPath == HomeAPI.ContentDetailPath{
+           
             
             if menytype == MenuType.Articel{
                 amodel = Mapper<ArticleModel>().map(JSONObject: responseResult.rawValue)
                 urlString = amodel?.web_url
                 goodCount = amodel!.likes
-                if amodel?.is_collect == 0{
-                     commentBarVC.barView.followButton.setImage(UIImage.init(named: "xingxing"), for: .normal)
+ 
+                articleDetailView.DetailwebView.loadHTMLString(html2String(content: amodel?.content ?? ""), baseURL: nil)
+                articleDetailView.headImage.displayHeadImageWithURL(url: amodel?.publisher?.avatar_url)
+                articleDetailView.nameLabel.text = amodel?.publisher?.name
+                articleDetailView.lileLabel.text = "点赞:" + "\(amodel!.likes)"
+                articleDetailView.readLabel.text = "阅读:" + "\(amodel!.hits)"
+                articleDetailView.comentLabel.text = "评论:" + "\(amodel!.comments)"
+                articleDetailView.createlabel.text = "发布时间:" + DateUtils.timeStampToStringDetail("\(String(describing: amodel!.created_at))")
+
+                
+                if amodel!.source == "原创" || amodel!.source == "吉小编" {
+                    articleDetailView.urlString = ""
+                    articleDetailView.sourceBtn.setTitle(amodel?.source, for: .normal)
+                    articleDetailView.sourceBtn.setTitleColor(UIColor.darkGray, for: .normal)
+                    articleDetailView.sourceBtn.isEnabled = false
                 }else{
-                     commentBarVC.barView.followButton.setImage(UIImage.init(named: "xuanzhong"), for: .normal)
+                    articleDetailView.urlString = amodel!.source_link
+                    articleDetailView.sourceBtn.setTitle(amodel?.source, for: .normal)
+                    articleDetailView.sourceBtn.setTitleColor(ZYJColor.main, for: .normal)
+                 }
+                articleDetailView.parentNavigationController = self.navigationController
+                
+                
+                self.tableView.tableHeaderView = self.articleDetailView
+                //self.tableView.reloadData()
+                if amodel?.is_collect == 0{
+                    commentBarVC.barView.followButton.setImage(UIImage.init(named: "xingxing"), for: .normal)
+                }else{
+                    commentBarVC.barView.followButton.setImage(UIImage.init(named: "xuanzhong"), for: .normal)
                 }
                 if amodel?.is_like == 0{
                     chatHeadView.goodbtn.setImage(UIImage.init(named: "good"), for: .normal)
@@ -205,10 +293,33 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
                 cmodel = Mapper<CaseModel>().map(JSONObject: responseResult.rawValue)
                 urlString = cmodel?.web_url
                 goodCount = cmodel!.likes
-                if cmodel?.is_collect == 0{
-                     commentBarVC.barView.followButton.setImage(UIImage.init(named: "xingxing"), for: .normal)
+                
+                articleDetailView.DetailwebView.loadHTMLString(html2String(content: cmodel?.content ?? ""), baseURL: nil)
+                articleDetailView.headImage.displayHeadImageWithURL(url: cmodel?.publisher?.avatar_url)
+                articleDetailView.nameLabel.text = cmodel?.publisher?.name
+                articleDetailView.lileLabel.text = "点赞:" + "\(cmodel!.likes)"
+                articleDetailView.readLabel.text = "阅读:" + "\(cmodel!.hits)"
+                articleDetailView.comentLabel.text = "评论:" + "\(cmodel!.comments)"
+                articleDetailView.createlabel.text = "发布时间:" + DateUtils.timeStampToStringDetail("\(String(describing: cmodel!.created_at))")
+                
+                articleDetailView.parentNavigationController = self.navigationController
+                
+                if cmodel!.source == "原创" || cmodel!.source == "吉小编" {
+                    articleDetailView.urlString = ""
+                    articleDetailView.sourceBtn.setTitle(cmodel?.source, for: .normal)
+                    articleDetailView.sourceBtn.setTitleColor(UIColor.darkGray, for: .normal)
+                    articleDetailView.sourceBtn.isEnabled = false
                 }else{
-                     commentBarVC.barView.followButton.setImage(UIImage.init(named: "xuanzhong"), for: .normal)
+                    articleDetailView.urlString = amodel!.source_link
+                    articleDetailView.sourceBtn.setTitle(cmodel?.source, for: .normal)
+                    articleDetailView.sourceBtn.setTitleColor(ZYJColor.main, for: .normal)
+                 }
+                self.tableView.tableHeaderView = self.articleDetailView
+                
+                if cmodel?.is_collect == 0{
+                    commentBarVC.barView.followButton.setImage(UIImage.init(named: "xingxing"), for: .normal)
+                }else{
+                    commentBarVC.barView.followButton.setImage(UIImage.init(named: "xuanzhong"), for: .normal)
                 }
                 if cmodel?.is_like == 0{
                     chatHeadView.goodbtn.setImage(UIImage.init(named: "good"), for: .normal)
@@ -218,10 +329,10 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
                     chatBlankHeadView.goodBtn.setImage(UIImage.init(named: "goodSelected"), for: .normal)
                 }
             }
-            loadWebView()
+            // loadWebView()
             chatHeadView.goodLabel.text = "点赞数" + "\(goodCount)"
             chatBlankHeadView.goodCountlabel.text = "点赞数" + "\(goodCount)"
-            return
+            
         }
         else if requestPath == HomeAPI.saveCommentPath{
             showOnlyTextHUD(text: "发送成功")
@@ -232,7 +343,13 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
             if toCommentModel == nil {
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section:0), at: .bottom, animated: true)
             }
-            return
+            
+        }
+        else if requestPath == HomeAPI.shieldPath || requestPath == HomeAPI.blackPath{
+            commentModelList.removeAll()
+            page = 1
+            selectedSection = 0
+            pullloadData()
         }
         else if requestPath == HomeAPI.commentPath{
             list = getArrayFromJsonByArrayName(arrayName: "list", content:  responseResult)
@@ -250,46 +367,42 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
                 }
                 commentModelList.append(tempList)
             }
-           
             if toCommentModel == nil {
                 selectedSection = 0
             }
-            self.tableView.reloadData()
-           
- 
+            
         }
         else if requestPath == HomeAPI.ContentCollectPath{
             let operate = responseResult["collect_type"].intValue
             if operate == 0{
                 showOnlyTextHUD(text: "取消收藏成功")
                 commentBarVC.barView.followButton.setImage(UIImage.init(named: "xingxing"), for: .normal)
-             }else{
+            }else{
                 showOnlyTextHUD(text: "收藏成功")
                 commentBarVC.barView.followButton.setImage(UIImage.init(named: "xuanzhong"), for: .normal)
             }
         }
         else if requestPath == HomeAPI.ContentlikePath{
-                 let operate = responseResult["like_type"].intValue
-                 if operate == 0{
-                     //goodSelected
-                     showOnlyTextHUD(text: "取消点赞")
-                     chatHeadView.goodbtn.setImage(UIImage.init(named: "good"), for: .normal)
-                     chatBlankHeadView.goodBtn.setImage(UIImage.init(named: "good"), for: .normal)
-                     chatHeadView.goodLabel.text = "点赞数" + "\(goodCount - 1)"
-                     chatBlankHeadView.goodCountlabel.text = "点赞数" + "\(goodCount - 1)"
-                     goodCount = goodCount - 1
-                 }else{
-                     showOnlyTextHUD(text: "点赞成功")
-                     chatHeadView.goodbtn.setImage(UIImage.init(named: "goodSelected"), for: .normal)
-                     chatBlankHeadView.goodBtn.setImage(UIImage.init(named: "goodSelected"), for: .normal)
-                     
-                     chatHeadView.goodLabel.text = "点赞数" + "\(goodCount + 1)"
-                     chatBlankHeadView.goodCountlabel.text = "点赞数" + "\(goodCount + 1)"
-                     goodCount = goodCount + 1
-                 }
-                 
+            let operate = responseResult["like_type"].intValue
+            if operate == 0{
+                //goodSelected
+                showOnlyTextHUD(text: "取消点赞")
+                chatHeadView.goodbtn.setImage(UIImage.init(named: "good"), for: .normal)
+                chatBlankHeadView.goodBtn.setImage(UIImage.init(named: "good"), for: .normal)
+                chatHeadView.goodLabel.text = "点赞数" + "\(goodCount - 1)"
+                chatBlankHeadView.goodCountlabel.text = "点赞数" + "\(goodCount - 1)"
+                goodCount = goodCount - 1
+            }else{
+                showOnlyTextHUD(text: "点赞成功")
+                chatHeadView.goodbtn.setImage(UIImage.init(named: "goodSelected"), for: .normal)
+                chatBlankHeadView.goodBtn.setImage(UIImage.init(named: "goodSelected"), for: .normal)
+                
+                chatHeadView.goodLabel.text = "点赞数" + "\(goodCount + 1)"
+                chatBlankHeadView.goodCountlabel.text = "点赞数" + "\(goodCount + 1)"
+                goodCount = goodCount + 1
+            }
         }
- 
+        
         commentBarVC.barView.countLabel.text = "\(commentCount)"
         tableView.reloadData()
     }
@@ -304,6 +417,8 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
         tableView.delegate = self
         tableView.dataSource = self
         
+        //        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight - navigationHeaderAndStatusbarHeight - bottomNavigationHeight - pageMenuHeight), style: .plain)
+        
         self.tableView.rowHeight = UITableView.automaticDimension;
         self.tableView.estimatedRowHeight = 110;
         tableView.separatorStyle = .none
@@ -316,6 +431,9 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
         //  tableView.mj_header = addressHeadRefresh
         //  tableView.mj_header?.beginRefreshing()
         // let footerRefresh = GmmMJRefreshAutoGifFooter(refreshingTarget: self, refreshingAction: #selector(pullRefreshList))
+        
+        let footerRefresh = GmmMJRefreshAutoGifFooter(refreshingTarget: self, refreshingAction: #selector(pullRefreshList))
+        tableView.mj_footer = footerRefresh
         
         //暂时不加分页
         // tableView.mj_footer = footerRefresh
@@ -330,119 +448,48 @@ class ArcticleDetailController: BaseViewController ,Requestable, UIWebViewDelega
     }
     
     @objc func pullRefreshList() {
-         page = page + 1
-         self.pullloadData()
-     }
-    lazy var changeWebView: WKWebView = {
-        let webConfiguration = WKWebViewConfiguration()
-        //初始化偏好设置属性：preferences
-        webConfiguration.preferences = WKPreferences()
-        //是否支持JavaScript
-        webConfiguration.preferences.javaScriptEnabled = true
-        //不通过用户交互，是否可以打开窗口
-       // webConfiguration.preferences.javaScriptCanOpenWindowsAutomatically = false
-        
-        let webFrame = CGRect(x: 0, y: 0, width: screenWidth, height: 0)
-        let webView = WKWebView(frame: webFrame, configuration: webConfiguration)
-        // webView.backgroundColor = UIColor.blue
-        webView.navigationDelegate = self
-        webView.scrollView.isScrollEnabled = false
-        webView.scrollView.bounces = false
-        webView.scrollView.showsVerticalScrollIndicator = false
-        webView.scrollView.showsHorizontalScrollIndicator = false
-        webView.navigationDelegate = self
-        
-        
-        return webView
-    }()
+        page = page + 1
+        self.pullloadData()
+    }
+    //    lazy var changeWebView: WKWebView = {
+    //        let webConfiguration = WKWebViewConfiguration()
+    //        //初始化偏好设置属性：preferences
+    //        webConfiguration.preferences = WKPreferences()
+    //        //是否支持JavaScript
+    //        webConfiguration.preferences.javaScriptEnabled = true
+    //        //不通过用户交互，是否可以打开窗口
+    //       // webConfiguration.preferences.javaScriptCanOpenWindowsAutomatically = false
+    //
+    //        let webFrame = CGRect(x: 0, y: 0, width: screenWidth, height: 0)
+    //        let webView = WKWebView(frame: webFrame, configuration: webConfiguration)
+    //        // webView.backgroundColor = UIColor.blue
+    //        webView.navigationDelegate = self
+    //        webView.scrollView.isScrollEnabled = false
+    //        webView.scrollView.bounces = false
+    //        webView.scrollView.showsVerticalScrollIndicator = false
+    //        webView.scrollView.showsHorizontalScrollIndicator = false
+    //        webView.navigationDelegate = self
+    //
+    //
+    //        return webView
+    //    }()
     
     
     var isLogControllerView = false
-      
-      override func pushLoginController(){
-          let controller = UIStoryboard.getNewLoginController()
-          controller.modalPresentationStyle = .fullScreen
-          
-          controller.reloadLogin = {[weak self] () -> Void in
-              self!.isLogControllerView = false
-              
-          }
-          self.present(controller, animated: true, completion: nil)
-      }
-}
-extension ArcticleDetailController: WKNavigationDelegate {
     
-    // 监听网页加载进度
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func pushLoginController(){
+        let controller = UIStoryboard.getNewLoginController()
+        controller.modalPresentationStyle = .fullScreen
         
-    }
-    // 页面开始加载时调用
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        DialogueUtils.showWithStatus("详情加载")
-     }
-    
-    // 当内容开始返回时调用
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!){
-     }
-    // 页面加载完成之后调用
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        DialogueUtils.dismiss()
-        pullloadData()
-        
-        webIsLoad = true
- 
- 
-        let javascript = "var meta = document.createElement('meta');meta.setAttribute('name', 'viewport');meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');document.getElementsByTagName('head')[0].appendChild(meta);"
-        webView.evaluateJavaScript(javascript, completionHandler: nil)
-        webView.evaluateJavaScript("document.documentElement.style.webkitTouchCallout='none';", completionHandler: nil)
-        
-        var webheight = 0.0
-
-        // 获取内容实际高度
-        self.changeWebView .evaluateJavaScript("document.body.scrollHeight") { [unowned self] (result, error) in
+        controller.reloadLogin = {[weak self] () -> Void in
+            self!.isLogControllerView = false
             
-            if let tempHeight: Double = result as? Double {
-                webheight = tempHeight
-             }
-            DispatchQueue.main.async { [unowned self] in
-                var tempFrame: CGRect = self.changeWebView.frame
-                tempFrame.size.height = CGFloat(webheight)
-                tempFrame.size.width = CGFloat(screenWidth)
-                self.changeWebView.frame = tempFrame
-                self.tableView.tableHeaderView = self.changeWebView
-                self.tableView.reloadData()
-                //                self.bgScrollView.contentSize = CGSize(width: self.bgScrollView.frame.size.width, height: self.changeWebView.frame.size.height)
-            }
         }
+        self.present(controller, animated: true, completion: nil)
     }
-    
-    
-    // 页面加载失败时调用
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error){
-        let alertView = UIAlertController.init(title: "提示", message: "加载失败", preferredStyle: .alert)
-        let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in
-            _=self.navigationController?.popViewController(animated: true)
-        }
-        alertView.addAction(okAction)
-        self.present(alertView, animated: true, completion: nil)
-    }
-    
-    
-    // MARK: 重置barView的位置
-    func resetChatBarFrame() {
-
-        commentBarVC.resetKeyboard()
-        UIApplication.shared.keyWindow?.endEditing(true)
-        commentBarVC.view.snp.updateConstraints { (make) in
-            make.bottom.equalTo(self.view.snp.bottom)
-        }
-        UIView.animate(withDuration: kKeyboardChangeFrameTime, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
- 
 }
-extension ArcticleDetailController:ChatMsgControllerDelegate {
+
+extension NativeArticleController:ChatMsgControllerDelegate {
     func avterButtonClick() {
         
     }
@@ -452,7 +499,7 @@ extension ArcticleDetailController:ChatMsgControllerDelegate {
         //resetChatBarFrame()
     }
 }
-extension ArcticleDetailController:CommentBarControllerDelegate{
+extension NativeArticleController:CommentBarControllerDelegate{
     func commentCollect() {
         
         if !currentIsLogin() && isLogControllerView == false {
@@ -484,13 +531,13 @@ extension ArcticleDetailController:CommentBarControllerDelegate{
     }
     
     func forLoginVC() {
-           if !currentIsLogin() && isLogControllerView == false {
-               isLogControllerView = true
-               self.pushLoginController()
-               return
-           }
+        if !currentIsLogin() && isLogControllerView == false {
+            isLogControllerView = true
+            self.pushLoginController()
+            return
+        }
     }
- 
+    
     
     func commentBarUpdateHeight(height: CGFloat) {
         commentBarVC.view.snp.updateConstraints { (make) in
@@ -499,7 +546,7 @@ extension ArcticleDetailController:CommentBarControllerDelegate{
     }
     func commentBarVC(commentBarVC: CommentBarController, didChageChatBoxBottomDistance distance: CGFloat) {
         
-       if !currentIsLogin()  {
+        if !currentIsLogin()  {
             return
         }
         commentBarVC.view.snp.updateConstraints { (make) in
@@ -509,14 +556,14 @@ extension ArcticleDetailController:CommentBarControllerDelegate{
             self.view.layoutIfNeeded()
         })
         self.view.layoutIfNeeded()
-        if commentModelList.count != 0 && (toCommentModel == nil ||  toCommentModel?.id == -1){
-            selectedSection = commentModelList.count - 1
-        }
-        self.tableView.scrollToRow(at: IndexPath(row: 0, section:selectedSection), at: .bottom, animated: true)
+//        if commentModelList.count != 0 && (toCommentModel == nil ||  toCommentModel?.id == -1){
+//            selectedSection = commentModelList.count - 1
+//        }
+        self.tableView.scrollToRow(at: IndexPath(row: 0, section:0), at: .bottom, animated: true)
     }
     
 }
-extension ArcticleDetailController:UITableViewDataSource,UITableViewDelegate {
+extension NativeArticleController:UITableViewDataSource,UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         if commentModelList.count == 0{
             return 1
@@ -562,19 +609,32 @@ extension ArcticleDetailController:UITableViewDataSource,UITableViewDelegate {
             }
         }
     }
- 
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //        if section == 0 {
+        //            if webIsLoad {
+        //                if commentModelList.count == 0 {
+        //
+        //                    return chatBlankHeadView
+        //                }else{
+        //
+        //                    return chatHeadView
+        //                }
+        //            }else{
+        //                return UIView()
+        //            }
+        //        }else{
+        //            return UIView()
+        //       }
+        
+        
         if section == 0 {
-            if webIsLoad {
-                if commentModelList.count == 0 {
-                    
-                    return chatBlankHeadView
-                }else{
-                    
-                    return chatHeadView
-                }
+            if commentModelList.count == 0 {
+                
+                return chatBlankHeadView
             }else{
-                return UIView()
+                
+                return chatHeadView
             }
         }else{
             return UIView()
@@ -595,24 +655,59 @@ extension ArcticleDetailController:UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        
     }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         resetChatBarFrame()
     }
+    
+    
+    // MARK: 重置barView的位置
+    func resetChatBarFrame() {
+        
+        commentBarVC.resetKeyboard()
+        UIApplication.shared.keyWindow?.endEditing(true)
+        commentBarVC.view.snp.updateConstraints { (make) in
+            make.bottom.equalTo(self.view.snp.bottom)
+        }
+        UIView.animate(withDuration: kKeyboardChangeFrameTime, animations: {
+            self.view.layoutIfNeeded()
+        })
+        self.tableView.reloadData()
+    }
 }
 
-extension ArcticleDetailController:CommentCellDelegate {
+extension NativeArticleController:CommentCellDelegate {
     func blockActiion(cmodel: CommentModel) {
+        let noticeView = UIAlertController.init(title: "提示", message: "您确定要屏蔽此条评论么", preferredStyle: .alert)
         
+        
+        noticeView.addAction(UIAlertAction.init(title: "确定", style: .default, handler: { (action) in
+            self.postblockAction(cmodel: cmodel)
+        }))
+        
+        noticeView.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: { (action) in
+            
+        }))
+        self.present(noticeView, animated: true, completion: nil)
     }
     
     func blockAllActiion(cmodel: CommentModel) {
+        let noticeView = UIAlertController.init(title: "提示", message: "您确定将此用户放入黑名单么，放入后将不会看到他的所有评论", preferredStyle: .alert)
         
+        
+        noticeView.addAction(UIAlertAction.init(title: "确定", style: .default, handler: { (action) in
+            self.postblockAllComment(cmodel: cmodel)
+        }))
+        
+        noticeView.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: { (action) in
+            
+        }))
+        self.present(noticeView, animated: true, completion: nil)
     }
     
     func complainActiion(cmodel: CommentModel) {
- 
+        
         if !currentIsLogin() && isLogControllerView == false {
             isLogControllerView = true
             self.pushLoginController()
@@ -629,14 +724,14 @@ extension ArcticleDetailController:CommentCellDelegate {
     }
     
     func commentACtion(cmodel: CommentModel, section: Int) {
-         self.selectedSection = section
-         toCommentModel = cmodel
-         commentBarVC.barView.inputTextView.becomeFirstResponder()
+        self.selectedSection = section
+        toCommentModel = cmodel
+        commentBarVC.barView.inputTextView.becomeFirstResponder()
     }
     
+    
 }
-
-extension ArcticleDetailController:CommentBlankHeadViewDelegate {
+extension NativeArticleController:CommentBlankHeadViewDelegate {
     func goodBtnAction() {
         if !currentIsLogin() && isLogControllerView == false {
             isLogControllerView = true
@@ -646,20 +741,76 @@ extension ArcticleDetailController:CommentBlankHeadViewDelegate {
         
         self.goodData ()
     }
-    
 }
-
-extension ArcticleDetailController:ACommentBlankHeadViewDelegate {
+extension NativeArticleController:ACommentBlankHeadViewDelegate {
     func goodLBtnAction() {
         if !currentIsLogin() && isLogControllerView == false {
             isLogControllerView = true
             self.pushLoginController()
             return
         }
-
+        
         self.goodData ()
     }
-
-
-
 }
+
+
+
+//extension NativeArticleController: WKNavigationDelegate {
+//
+//    // 监听网页加载进度
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//
+//    }
+//    // 页面开始加载时调用
+//    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+//        DialogueUtils.showWithStatus("详情加载")
+//     }
+//
+//    // 当内容开始返回时调用
+//    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!){
+//     }
+//    // 页面加载完成之后调用
+//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//        DialogueUtils.dismiss()
+//        pullloadData()
+//
+//        webIsLoad = true
+//
+//
+//        let javascript = "var meta = document.createElement('meta');meta.setAttribute('name', 'viewport');meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');document.getElementsByTagName('head')[0].appendChild(meta);"
+//        webView.evaluateJavaScript(javascript, completionHandler: nil)
+//        webView.evaluateJavaScript("document.documentElement.style.webkitTouchCallout='none';", completionHandler: nil)
+//
+//        var webheight = 0.0
+//
+//        // 获取内容实际高度
+//        self.changeWebView .evaluateJavaScript("document.body.scrollHeight") { [unowned self] (result, error) in
+//
+//            if let tempHeight: Double = result as? Double {
+//                webheight = tempHeight
+//             }
+//            DispatchQueue.main.async { [unowned self] in
+//                var tempFrame: CGRect = self.changeWebView.frame
+//                tempFrame.size.height = CGFloat(webheight)
+//                tempFrame.size.width = CGFloat(screenWidth)
+//                self.changeWebView.frame = tempFrame
+//                self.tableView.tableHeaderView = self.changeWebView
+//                self.tableView.reloadData()
+//                //                self.bgScrollView.contentSize = CGSize(width: self.bgScrollView.frame.size.width, height: self.changeWebView.frame.size.height)
+//            }
+//        }
+//    }
+//
+//
+//    // 页面加载失败时调用
+//    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error){
+//        let alertView = UIAlertController.init(title: "提示", message: "加载失败", preferredStyle: .alert)
+//        let okAction = UIAlertAction.init(title:"确定", style: .default) { okAction in
+//            _=self.navigationController?.popViewController(animated: true)
+//        }
+//        alertView.addAction(okAction)
+//        self.present(alertView, animated: true, completion: nil)
+//    }
+//
+//}

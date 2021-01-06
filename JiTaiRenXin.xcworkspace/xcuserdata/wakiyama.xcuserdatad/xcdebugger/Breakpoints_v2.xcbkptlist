@@ -190,8 +190,8 @@
             filePath = "JiTaiRenXin/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155">
+            startingLineNumber = "233"
+            endingLineNumber = "233">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -204,8 +204,8 @@
             filePath = "JiTaiRenXin/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166">
+            startingLineNumber = "271"
+            endingLineNumber = "271">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,8 +218,8 @@
             filePath = "JiTaiRenXin/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175">
+            startingLineNumber = "282"
+            endingLineNumber = "282">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -232,8 +232,8 @@
             filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "changeWebView"
             landmarkType = "24">
          </BreakpointContent>
@@ -248,8 +248,8 @@
             filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "loadWebView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -264,9 +264,9 @@
             filePath = "JiTaiRenXin/Controller/MIne(&#x6211;&#x7684;)/NewNotifyDetailController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "webView(_:didReceive:completionHandler:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "webView(_:didFinish:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -283,6 +283,116 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "backAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "401457B7-667D-4EED-9676-EE41E71A2043"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "415729ED-7302-49CC-B76D-DDC64AEA4B1B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/Channel(&#x9891;&#x9053;)/NativeArticleController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "attrHtmlStringFrom(content:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3FCA3A1-84D2-4792-BAF2-FBE547922935"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/CommonLIbrary/API/HomeAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "feedbackPathAndParams(content:images:phone:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E38CD425-93D7-40F5-AF9D-717CAC368639"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/Channel(&#x9891;&#x9053;)/ArcticleDetailController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "resetChatBarFrame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C1860B3C-F40F-4270-BF43-CFA4D173BF1B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/Channel(&#x9891;&#x9053;)/NativeArticleController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
+            landmarkName = "tableView(_:heightForHeaderInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "563582EF-E47A-4EA8-8C91-D7FD40F8FF2D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/Channel(&#x9891;&#x9053;)/NativeArticleController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "661"
+            endingLineNumber = "661"
+            landmarkName = "scrollViewWillBeginDragging(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "886F23DB-2F37-43D7-838B-748A9654918F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JiTaiRenXin/Controller/Channel(&#x9891;&#x9053;)/NativeArticleController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "postblockAction(cmodel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

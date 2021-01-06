@@ -11,12 +11,13 @@ import WebKit
 class PrivateStatusViewController: BaseViewController {
 
     
-    let urlString = "http://jimin.lnyouran.com/index/index/privacy"
+    var urlString = "http://jimin.lnyouran.com/index/index/privacy"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "隐私声明"
+        urlString = stringForKey(key: "privacy_url")!
         loadWebView()
 
     }

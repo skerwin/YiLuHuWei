@@ -302,10 +302,22 @@ extension ChannelReportController:UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = ArcticleDetailController()
-        controller.fid = rankCaseModelList[indexPath.row].id
-        controller.menytype = MenuType.Report
-        self.navigationController?.pushViewController(controller, animated: true)
+        //let controller = ArcticleDetailController()
+        
+        
+        
+        if isNative(){
+            let controller = NativeArticleController()
+            controller.fid = rankCaseModelList[indexPath.row].id
+            controller.menytype = MenuType.Articel
+            self.navigationController?.pushViewController(controller, animated: true)
+        }else{
+            let controller = ArcticleDetailController()
+            controller.fid = rankCaseModelList[indexPath.row].id
+            controller.menytype = MenuType.Articel
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+   
         
         
     }

@@ -196,6 +196,18 @@ struct HomeAPI {
         return (editProfilePath, getRequestParamsDictionary(paramsDictionary: paramsDictionary))
     }
     
+    //添加意见反馈
+    static let feedbackPath = "/feedback/api/save"
+    static func feedbackPathAndParams(content:String,images:String,phone:String) -> PathAndParams {
+        var paramsDictionary = Dictionary<String, AnyObject>()
+        
+        paramsDictionary["content"] = content as AnyObject
+        paramsDictionary["images"] = images as AnyObject
+        paramsDictionary["phone"] = phone as AnyObject
+ 
+        return (feedbackPath, getRequestParamsDictionary(paramsDictionary: paramsDictionary))
+    }
+    
     static let ContentDetailPath = "/article/api/detail"
     static func ContentDetailPathAndParams(id:Int) -> PathAndParams {
         var paramsDictionary = Dictionary<String, AnyObject>()
@@ -227,6 +239,27 @@ struct HomeAPI {
         paramsDictionary["page"] = page as AnyObject
         paramsDictionary["pageSize"] = pageSize as AnyObject
         return (commentPath, getRequestParamsDictionary(paramsDictionary: paramsDictionary))
+    }
+    
+    //评论删除
+    static let shieldPath = "/comment/api/shield"
+    static func shieldPathAndParams(id:Int) -> PathAndParams {
+        var paramsDictionary = Dictionary<String, AnyObject>()
+        paramsDictionary["id"] = id as AnyObject
+        return (shieldPath, getRequestParamsDictionary(paramsDictionary: paramsDictionary))
+    }
+    
+    
+    //评论黑名单
+    static let blackPath = "/comment/api/black"
+    static func blackPathAndParams(user_id:Int) -> PathAndParams {
+        var paramsDictionary = Dictionary<String, AnyObject>()
+        
+//        if let userId = objectForKey(key: Constants.userid) {
+//            paramsDictionary["uid"] = userId as AnyObject
+//        }
+        paramsDictionary["user_id"] = user_id as AnyObject
+        return (blackPath, getRequestParamsDictionary(paramsDictionary: paramsDictionary))
     }
     
     //添加评论

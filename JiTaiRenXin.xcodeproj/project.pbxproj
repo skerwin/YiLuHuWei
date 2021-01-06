@@ -18,6 +18,9 @@
 		B82809F824CEC0AD004C39D1 /* ChannelArticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82809F724CEC0AD004C39D1 /* ChannelArticleController.swift */; };
 		B82809FA24CEC0CD004C39D1 /* ChannelReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82809F924CEC0CD004C39D1 /* ChannelReportController.swift */; };
 		B82809FC24CEC125004C39D1 /* ChannelVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82809FB24CEC125004C39D1 /* ChannelVideoController.swift */; };
+		B8362E7C259D767C0068AD68 /* NativeArticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8362E7B259D767C0068AD68 /* NativeArticleController.swift */; };
+		B8362E84259D83DD0068AD68 /* ArticleDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8362E83259D83DD0068AD68 /* ArticleDetailView.xib */; };
+		B8362E89259D83F50068AD68 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8362E88259D83F50068AD68 /* ArticleDetailView.swift */; };
 		B83E39B724C9254D001E5BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E39B624C9254D001E5BFD /* AppDelegate.swift */; };
 		B83E39BB24C9254D001E5BFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E39BA24C9254D001E5BFD /* ViewController.swift */; };
 		B83E39BE24C9254D001E5BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83E39BC24C9254D001E5BFD /* Main.storyboard */; };
@@ -72,6 +75,7 @@
 		B8670A9F24F3AA1300818404 /* CheckoutUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8670A9E24F3AA1300818404 /* CheckoutUtils.swift */; };
 		B8670AA124F6378A00818404 /* NotifyDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8670AA024F6378A00818404 /* NotifyDetailController.swift */; };
 		B8670AA524F7550200818404 /* CollectionBlankVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8670AA424F7550200818404 /* CollectionBlankVIew.swift */; };
+		B86752B1259D705400374B7C /* FeedBackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86752B0259D705400374B7C /* FeedBackController.swift */; };
 		B867BE9424E26D0F00182F5B /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867BE9224E26D0F00182F5B /* EmptyDataView.swift */; };
 		B867BE9524E26D0F00182F5B /* EmptyDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B867BE9324E26D0F00182F5B /* EmptyDataView.xib */; };
 		B867BE9724E393B600182F5B /* ColumnForModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867BE9624E393B600182F5B /* ColumnForModel.swift */; };
@@ -209,6 +213,9 @@
 		B82809F724CEC0AD004C39D1 /* ChannelArticleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelArticleController.swift; sourceTree = "<group>"; };
 		B82809F924CEC0CD004C39D1 /* ChannelReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelReportController.swift; sourceTree = "<group>"; };
 		B82809FB24CEC125004C39D1 /* ChannelVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVideoController.swift; sourceTree = "<group>"; };
+		B8362E7B259D767C0068AD68 /* NativeArticleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeArticleController.swift; sourceTree = "<group>"; };
+		B8362E83259D83DD0068AD68 /* ArticleDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleDetailView.xib; sourceTree = "<group>"; };
+		B8362E88259D83F50068AD68 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		B83E39B324C9254D001E5BFD /* 吉泰仁心.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "吉泰仁心.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83E39B624C9254D001E5BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B83E39BA24C9254D001E5BFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +278,7 @@
 		B8670A9E24F3AA1300818404 /* CheckoutUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutUtils.swift; sourceTree = "<group>"; };
 		B8670AA024F6378A00818404 /* NotifyDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyDetailController.swift; sourceTree = "<group>"; };
 		B8670AA424F7550200818404 /* CollectionBlankVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBlankVIew.swift; sourceTree = "<group>"; };
+		B86752B0259D705400374B7C /* FeedBackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackController.swift; sourceTree = "<group>"; };
 		B867BE9224E26D0F00182F5B /* EmptyDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		B867BE9324E26D0F00182F5B /* EmptyDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyDataView.xib; sourceTree = "<group>"; };
 		B867BE9624E393B600182F5B /* ColumnForModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnForModel.swift; sourceTree = "<group>"; };
@@ -655,6 +663,8 @@
 				B86EF3FE24E6970D002192B0 /* reCommentCell.xib */,
 				B8BB982624E4EB91006F246C /* CommentBlankHeadView.swift */,
 				B8BB982824E4EB9E006F246C /* CommentBlankHeadView.xib */,
+				B8362E83259D83DD0068AD68 /* ArticleDetailView.xib */,
+				B8362E88259D83F50068AD68 /* ArticleDetailView.swift */,
 				B8BB982A24E4EBED006F246C /* ACommentBlankHeadView.swift */,
 				B8BB982C24E4EC00006F246C /* ACommentBlankHeadView.xib */,
 				B8BB982E24E4F0CC006F246C /* commentPlacCell.swift */,
@@ -724,10 +734,11 @@
 				B82809F724CEC0AD004C39D1 /* ChannelArticleController.swift */,
 				B82809F924CEC0CD004C39D1 /* ChannelReportController.swift */,
 				B82809FB24CEC125004C39D1 /* ChannelVideoController.swift */,
-				B88DB17024D2756100825483 /* VideoContentController.swift */,
 				B88DB18224D2CC2600825483 /* CommentBarController.swift */,
 				B88DB18A24D3BC9700825483 /* ChatMsgController.swift */,
 				B8CF3F7924D7FBF600ACD8B9 /* ArcticleDetailController.swift */,
+				B88DB17024D2756100825483 /* VideoContentController.swift */,
+				B8362E7B259D767C0068AD68 /* NativeArticleController.swift */,
 				B86CB69A24ED09A700919F4F /* ComplainTypeController.swift */,
 				B85BC9E824F90AF500E8F0E5 /* VideoControlelr.swift */,
 			);
@@ -747,6 +758,7 @@
 			isa = PBXGroup;
 			children = (
 				B8DAC040254A9EC50011748D /* AboutBaiYiController.swift */,
+				B866561524EA668B0075725A /* PrivateStatusViewController.swift */,
 				B88DB14424D1754100825483 /* MineViewController.swift */,
 				B8CF3F7D24D806B100ACD8B9 /* PersonsInfoController.swift */,
 				B8CF3F8124D8F14700ACD8B9 /* AuthenController.swift */,
@@ -756,10 +768,10 @@
 				B8FA87F424DD4579008A0BE2 /* ComplainController.swift */,
 				B8FA87F624DD46C4008A0BE2 /* ComplainArticleController.swift */,
 				B8FA87F824DD46E2008A0BE2 /* ComplainCommentController.swift */,
-				B866561524EA668B0075725A /* PrivateStatusViewController.swift */,
 				B8FA87EC24DBFC45008A0BE2 /* NotifyController.swift */,
 				B8670AA024F6378A00818404 /* NotifyDetailController.swift */,
 				B865D89025835EB2005F255A /* NewNotifyDetailController.swift */,
+				B86752B0259D705400374B7C /* FeedBackController.swift */,
 			);
 			path = "MIne(我的)";
 			sourceTree = "<group>";
@@ -945,6 +957,7 @@
 				B8725976253D98020055CB40 /* LoginCodeCell.xib in Resources */,
 				B83E452224CAB551001E5BFD /* ChannelSmallCell.xib in Resources */,
 				B82809D224CE75B3004C39D1 /* HomeRankHeaderView.xib in Resources */,
+				B8362E84259D83DD0068AD68 /* ArticleDetailView.xib in Resources */,
 				B867BE9D24E3BCBF00182F5B /* CommentCell.xib in Resources */,
 				B83E451624CAAB6D001E5BFD /* HomeTopRankCell.xib in Resources */,
 				B87E36DE25946D6F00F17599 /* LaunchImage.png in Resources */,
@@ -1051,6 +1064,7 @@
 				B83E44EF24CA7542001E5BFD /* AccountAndPasswordPresenter.swift in Sources */,
 				B872597C253D98180055CB40 /* LoginPwdCell.swift in Sources */,
 				B83E44AA24C95CF7001E5BFD /* UITableView+Extension.swift in Sources */,
+				B86752B1259D705400374B7C /* FeedBackController.swift in Sources */,
 				B8F7C9132578BC0B00146689 /* DateUtils.swift in Sources */,
 				B8FA87E724DBD0B5008A0BE2 /* videoModel.swift in Sources */,
 				B82809E524CEABC9004C39D1 /* RecommendFirstCell.swift in Sources */,
@@ -1066,6 +1080,7 @@
 				B83E450224CA78B8001E5BFD /* CacheTool.swift in Sources */,
 				B83E450424CA78C0001E5BFD /* JSONUtils.swift in Sources */,
 				B8FA880024DD489B008A0BE2 /* ComplainCommentCell.swift in Sources */,
+				B8362E89259D83F50068AD68 /* ArticleDetailView.swift in Sources */,
 				B83E452124CAB551001E5BFD /* ChannelSmallCell.swift in Sources */,
 				B8CF3F7624D7F2E200ACD8B9 /* CollectionDropCell.swift in Sources */,
 				B8F7C90B2578B90300146689 /* Publisher.swift in Sources */,
@@ -1144,6 +1159,7 @@
 				B88DB13924D02CE300825483 /* ColumnForCell.swift in Sources */,
 				B83E44BF24C97D64001E5BFD /* MainTabBarController.swift in Sources */,
 				B8F7C90E2578B90300146689 /* HotWord.swift in Sources */,
+				B8362E7C259D767C0068AD68 /* NativeArticleController.swift in Sources */,
 				B83E44E924C999A1001E5BFD /* BerColor.swift in Sources */,
 				B83E451524CAAB6D001E5BFD /* HomeTopRankCell.swift in Sources */,
 				B8FA87FC24DD487A008A0BE2 /* ComplainArticleCell.swift in Sources */,
@@ -1348,7 +1364,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ziqin Wei (M37LZXN34B)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = M37LZXN34B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1382,7 +1398,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ziqin Wei (M37LZXN34B)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = M37LZXN34B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

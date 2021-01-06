@@ -313,10 +313,19 @@ extension ChannelArticleController:UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let controller = ArcticleDetailController()
-        controller.fid = rankArticleModelList[indexPath.row].id
-        controller.menytype = MenuType.Articel
-        self.navigationController?.pushViewController(controller, animated: true)
+        if isNative(){
+            let controller = NativeArticleController()
+            controller.fid = rankArticleModelList[indexPath.row].id
+            controller.menytype = MenuType.Articel
+            self.navigationController?.pushViewController(controller, animated: true)
+        }else{
+            let controller = ArcticleDetailController()
+            controller.fid = rankArticleModelList[indexPath.row].id
+            controller.menytype = MenuType.Articel
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+ 
+ 
         
     }
 }

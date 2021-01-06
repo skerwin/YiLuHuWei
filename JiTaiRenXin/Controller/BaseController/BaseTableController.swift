@@ -65,6 +65,14 @@ class BaseTableController: UITableViewController,AlertPresenter,LoadingPresenter
     }
     
     
+    func isNative() -> Bool{
+        if (stringForKey(key: "ios_orig") != nil && stringForKey(key: "ios_orig") != "" && stringForKey(key: "ios_orig") == "1") {
+            return true
+        }else{
+            return false
+        }
+    }
+    
     func forLoginController() {
         self.pushLoginController()
         return

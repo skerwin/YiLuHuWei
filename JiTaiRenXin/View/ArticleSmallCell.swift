@@ -52,32 +52,66 @@ class ArticleSmallCell: UICollectionViewCell {
     }
     
     
+    func isNative() -> Bool{
+        if (stringForKey(key: "ios_orig") != nil && stringForKey(key: "ios_orig") != "" && stringForKey(key: "ios_orig") == "1") {
+            return true
+        }else{
+            return false
+        }
+    }
+    
     @objc func ContentBgView1Action(){
         if modelList!.count >= 1{
-            let controller = ArcticleDetailController()
-            controller.fid = modelList![0].id
-            controller.menytype = MenuType.Articel
-            self.parentNavigationController?.pushViewController(controller, animated: true)
-        }
+            
+             if isNative() {
+               let  controller = NativeArticleController()
+                controller.fid = modelList![0].id
+                controller.menytype = MenuType.Articel
+                self.parentNavigationController?.pushViewController(controller, animated: true)
+            }else{
+                let controller = ArcticleDetailController()
+                controller.fid = modelList![0].id
+                controller.menytype = MenuType.Articel
+                self.parentNavigationController?.pushViewController(controller, animated: true)
+            }
+            
+         }
         
         
     }
     @objc func ContentBgView2Action(){
         if modelList!.count >= 2{
-            let controller = ArcticleDetailController()
-            controller.fid = modelList![1].id
-            controller.menytype = MenuType.Articel
-            self.parentNavigationController?.pushViewController(controller, animated: true)
+            if isNative() {
+              let  controller = NativeArticleController()
+               controller.fid = modelList![1].id
+               controller.menytype = MenuType.Articel
+               self.parentNavigationController?.pushViewController(controller, animated: true)
+           }else{
+               let controller = ArcticleDetailController()
+               controller.fid = modelList![1].id
+               controller.menytype = MenuType.Articel
+               self.parentNavigationController?.pushViewController(controller, animated: true)
+           }
+           
         }
         
         
     }
     @objc func ContentBgView3Action(){
         if modelList!.count >= 3{
-            let controller = ArcticleDetailController()
-            controller.fid = modelList![2].id
-            controller.menytype = MenuType.Articel
-            self.parentNavigationController?.pushViewController(controller, animated: true)
+          //  let controller = ArcticleDetailController()
+            if isNative() {
+              let  controller = NativeArticleController()
+               controller.fid = modelList![2].id
+               controller.menytype = MenuType.Articel
+               self.parentNavigationController?.pushViewController(controller, animated: true)
+           }else{
+               let controller = ArcticleDetailController()
+               controller.fid = modelList![2].id
+               controller.menytype = MenuType.Articel
+               self.parentNavigationController?.pushViewController(controller, animated: true)
+           }
+           
         }
         
         

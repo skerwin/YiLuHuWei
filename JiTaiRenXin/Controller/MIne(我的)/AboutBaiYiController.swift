@@ -12,11 +12,11 @@ import WebKit
 class AboutJiTaiRenXinController: BaseViewController {
     
     
-    let urlString = "http://jimin.lnyouran.com/index/index/about"
+    var urlString = "http://jimin.lnyouran.com/index/index/about"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        urlString = stringForKey(key: "about_url")!
         self.title = "关于吉泰仁心"
         loadWebView()
         

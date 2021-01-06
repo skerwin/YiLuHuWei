@@ -252,7 +252,7 @@ class MineViewController: BaseTableController,Requestable{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 1{
-            return 4
+            return 5
         }
         return 1
     }
@@ -308,7 +308,15 @@ class MineViewController: BaseTableController,Requestable{
             }else if row == 1{
                  let conroller = PrivateStatusViewController()
                  self.navigationController?.pushViewController(conroller, animated: true)
-            }
+            }else if row == 4{
+                
+                if !currentIsLogin()  {
+                    self.pushLoginController()
+                    return
+                }
+                let conroller = UIStoryboard.getFeedBackController()
+                self.navigationController?.pushViewController(conroller, animated: true)
+           }
             
         }
         

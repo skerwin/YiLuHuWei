@@ -34,6 +34,11 @@ extension UIStoryboard {
         {
         return getStoryboardByType(type: .Mine).instantiateViewController(withIdentifier: "AuthenController") as! AuthenController
         }
+    class func getFeedBackController() -> FeedBackController
+        {
+        return getStoryboardByType(type: .Mine).instantiateViewController(withIdentifier: "FeedBackController") as! FeedBackController
+        }
+    
     class func getAuthenSubmitedController() -> AuthenSubmitedController
         {
           return getStoryboardByType(type: .Mine).instantiateViewController(withIdentifier: "AuthenSubmitedController") as! AuthenSubmitedController

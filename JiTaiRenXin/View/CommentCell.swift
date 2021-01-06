@@ -10,6 +10,8 @@ import UIKit
 
 protocol CommentCellDelegate: class {
     func complainActiion(cmodel:CommentModel)
+    func blockActiion(cmodel:CommentModel)
+    func blockAllActiion(cmodel:CommentModel)
     func commentACtion(cmodel:CommentModel,section:Int)
    
 }
@@ -26,6 +28,8 @@ class CommentCell: UITableViewCell {
     var delegeta:CommentCellDelegate?
     
     var model:CommentModel?
+    @IBOutlet weak var blockBtn: UIButton!
+    @IBOutlet weak var blockAllbtn: UIButton!
     
     var sectoin = 0
     
@@ -36,6 +40,13 @@ class CommentCell: UITableViewCell {
         delegeta?.commentACtion(cmodel: model!,section: sectoin)
     }
     
+    @IBAction func blockAction(_ sender: Any) {
+        delegeta?.blockActiion(cmodel: model!)
+    }
+    
+    @IBAction func blockAllaction(_ sender: Any) {
+        delegeta?.blockAllActiion(cmodel: model!)
+    }
     func configModel(){
         headImage.displayHeadImageWithURL(url: model?.users?.avatar_url)
         if (model?.users?.nickname.isLengthEmpty())! {

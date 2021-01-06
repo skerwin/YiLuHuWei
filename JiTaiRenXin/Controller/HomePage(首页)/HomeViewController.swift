@@ -92,6 +92,7 @@ class HomeViewController: BaseViewController ,Requestable{
             
             setStringValueForKey(value: responseResult["privacy_url"].stringValue as String, key: "privacy_url")
             setStringValueForKey(value: responseResult["about_url"].stringValue as String, key: "about_url")
+            setStringValueForKey(value: responseResult["ios_orig"].stringValue as String, key: "ios_orig")
             return
         }
         
@@ -127,6 +128,8 @@ class HomeViewController: BaseViewController ,Requestable{
         tableView.tableHeaderView = getAdvertisementView(imageArr: adverModelList)
         
     }
+    
+    
     
     func getAdvertisementView(imageArr:[adverModel]) -> UIView {
         
@@ -362,22 +365,49 @@ extension HomeViewController:UITableViewDataSource,UITableViewDelegate {
         case .Recommend:
             
             if recommendTopModelList.count == 0 {
-                let controller = ArcticleDetailController()
-                controller.fid = recommendArticleModelList[row].id
-                controller.menytype = MenuType.Articel
-                self.navigationController?.pushViewController(controller, animated: true)
-            }else{
-                if row == 0{
-                    
-                    let controller = ArcticleDetailController()
-                    controller.fid = recommendTopModelList.first?.id
+                
+                if isNative(){
+                    let controller = NativeArticleController()
+                    controller.fid = recommendArticleModelList[row].id
                     controller.menytype = MenuType.Articel
                     self.navigationController?.pushViewController(controller, animated: true)
                 }else{
                     let controller = ArcticleDetailController()
-                    controller.fid = recommendArticleModelList[row - 1].id
+                    controller.fid = recommendArticleModelList[row].id
                     controller.menytype = MenuType.Articel
                     self.navigationController?.pushViewController(controller, animated: true)
+                }
+             
+            }else{
+                if row == 0{
+                    if isNative(){
+                        let controller = NativeArticleController()
+                        controller.fid = recommendTopModelList.first?.id
+                        controller.menytype = MenuType.Articel
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }else{
+                        let controller = ArcticleDetailController()
+                        controller.fid = recommendTopModelList.first?.id
+                        controller.menytype = MenuType.Articel
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
+                    
+                    
+               
+                }else{
+                    
+                    if isNative(){
+                        let controller = NativeArticleController()
+                        controller.fid = recommendArticleModelList[row - 1].id
+                        controller.menytype = MenuType.Articel
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }else{
+                        let controller = ArcticleDetailController()
+                        controller.fid = recommendArticleModelList[row - 1].id
+                        controller.menytype = MenuType.Articel
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
+              
                 }
             }
         }
