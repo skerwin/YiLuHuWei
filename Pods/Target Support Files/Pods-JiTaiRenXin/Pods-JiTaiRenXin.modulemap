@@ -1,6 +1,0 @@
-framework module Pods_JiTaiRenXin {
-  umbrella header "Pods-JiTaiRenXin-umbrella.h"
-
-  export *
-  module * { export * }
-}

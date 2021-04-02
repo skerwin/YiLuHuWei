@@ -1,16 +1,14 @@
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 platform :ios, '12.0'
 use_frameworks!
-target ‘JiTaiRenXin’ do
+target ‘YiLuHuWei’ do
 
 pod 'Alamofire', '~> 5.2'
 
 # 图片异步请求
 pod 'Kingfisher'
-
 # 下拉刷新
 pod 'MJRefresh'
-
 # 模型转换
 pod 'ObjectMapper', '~> 3.3'
 
@@ -25,8 +23,9 @@ pod 'SVProgressHUD'
 pod 'JGProgressHUD'
 # 滑动小tab
 # pod 'PageMenu'
+
 # 轻便缓存框架
-#pod 'Cache', '~> 4.1.2'
+pod 'XHNetworkCache'
  # 键盘弹出控制
 pod 'IQKeyboardManagerSwift'
 
@@ -50,6 +49,9 @@ pod 'ZFPlayer/AVPlayer', '~> 3.0'
 pod 'SnapKit', '~> 4.0.0'
 
 pod 'JCore', '2.1.4-noidfa'
-pod 'JPush', '3.2.4-noidfa' 
+pod 'JPush', '3.2.4-noidfa'
+pod 'ReachabilitySwift'
+# 版本更新
+pod 'Harpy'
 
 end
